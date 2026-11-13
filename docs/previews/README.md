@@ -1,6 +1,6 @@
 # Showcase preview maintenance
 
-These silent GIFs were exported from the project owner's original SYTASK demonstration videos. They illustrate the six included effects and are not runtime inputs. No original screenshot files or audio are included here.
+These silent GIFs were exported from the project owner's SYTASK demonstration videos, refreshed on 2026-11-14 with the supplied English UI screenshots. They illustrate the six included effects and are not runtime inputs. No original screenshot files or audio are included here.
 
 | Preview | Source demo | Playback speed |
 | --- | --- | --- |
