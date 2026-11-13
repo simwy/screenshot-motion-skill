@@ -1,0 +1,14 @@
+node_modules/
+__pycache__/
+*.pyc
+.DS_Store
+.env*
+jobs/
+out/
+*.mp4
+*.wav
+.venv/
+*.mp3
+*.mov
+*.webm
+*.zip

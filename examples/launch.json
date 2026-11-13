@@ -1,0 +1,90 @@
+{
+  "brand": "YourApp",
+  "accent": "#1467DB",
+  "tagline": "PLAN. CREATE. MAKE PROGRESS.",
+  "coverTitle": [
+    "A better",
+    "way to",
+    "work."
+  ],
+  "closingTitle": [
+    "Your next",
+    "chapter",
+    "starts here."
+  ],
+  "cta": "EXPLORE YOURAPP",
+  "holdSeconds": 4,
+  "pages": [
+    {
+      "image": "screenshots/screen-1.png",
+      "tag": "FEATURE 1",
+      "title": [
+        "Make room",
+        "for better work."
+      ],
+      "body": [
+        "Show a concrete product benefit.",
+        "Keep the explanation short."
+      ],
+      "detail": "Explain the next step.",
+      "key": "FEATURE 1"
+    },
+    {
+      "image": "screenshots/screen-2.png",
+      "tag": "FEATURE 2",
+      "title": [
+        "Make room",
+        "for better work."
+      ],
+      "body": [
+        "Show a concrete product benefit.",
+        "Keep the explanation short."
+      ],
+      "detail": "Explain the next step.",
+      "key": "FEATURE 2"
+    },
+    {
+      "image": "screenshots/screen-3.png",
+      "tag": "FEATURE 3",
+      "title": [
+        "Make room",
+        "for better work."
+      ],
+      "body": [
+        "Show a concrete product benefit.",
+        "Keep the explanation short."
+      ],
+      "detail": "Explain the next step.",
+      "key": "FEATURE 3"
+    },
+    {
+      "image": "screenshots/screen-4.png",
+      "tag": "FEATURE 4",
+      "title": [
+        "Make room",
+        "for better work."
+      ],
+      "body": [
+        "Show a concrete product benefit.",
+        "Keep the explanation short."
+      ],
+      "detail": "Explain the next step.",
+      "key": "FEATURE 4"
+    },
+    {
+      "image": "screenshots/screen-5.png",
+      "tag": "FEATURE 5",
+      "title": [
+        "Make room",
+        "for better work."
+      ],
+      "body": [
+        "Show a concrete product benefit.",
+        "Keep the explanation short."
+      ],
+      "detail": "Explain the next step.",
+      "key": "FEATURE 5"
+    }
+  ],
+  "template": "launch"
+}

@@ -1,0 +1,49 @@
+{
+  "brand": "YourApp",
+  "accent": "#1467DB",
+  "tagline": "PLAN. CREATE. MAKE PROGRESS.",
+  "coverTitle": [
+    "A better",
+    "way to",
+    "work."
+  ],
+  "closingTitle": [
+    "Your next",
+    "chapter",
+    "starts here."
+  ],
+  "cta": "EXPLORE YOURAPP",
+  "holdSeconds": 4,
+  "pages": [
+    {
+      "image": "screenshots/home.png",
+      "tag": "THE DAILY PLAN",
+      "title": [
+        "Your day,",
+        "at a glance."
+      ],
+      "body": [
+        "See your calendar and daily tasks",
+        "together. Know what needs",
+        "your attention."
+      ],
+      "detail": "A clear place to start.",
+      "key": "CALENDAR + TASKS"
+    },
+    {
+      "image": "screenshots/team.png",
+      "tag": "THE PEOPLE",
+      "title": [
+        "Good work",
+        "starts together."
+      ],
+      "body": [
+        "Keep responsibilities visible.",
+        "Bring your team into one view."
+      ],
+      "detail": "Move forward together.",
+      "key": "PEOPLE + RESPONSIBILITY"
+    }
+  ],
+  "template": "storybook"
+}

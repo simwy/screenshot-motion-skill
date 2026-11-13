@@ -1,0 +1,98 @@
+{
+  "storybook": {
+    "composition": "ScreenshotBook",
+    "component": "Book",
+    "module": "Book",
+    "minPages": 1,
+    "maxPages": 12,
+    "timing": "book",
+    "description": "Hardcover opening, curved page turns and per-page explanation."
+  },
+  "spotlight": {
+    "composition": "ScreenshotSpotlight",
+    "component": "Spotlight",
+    "module": "Spotlight",
+    "minPages": 5,
+    "maxPages": 5,
+    "timing": "fixed",
+    "frames": 360,
+    "cues": [
+      30,
+      43,
+      51,
+      150,
+      280
+    ],
+    "description": "Five-card fan-out, hero focus and return to a full lineup."
+  },
+  "launch": {
+    "composition": "ProductLaunch",
+    "component": "Launch",
+    "module": "Launch",
+    "minPages": 5,
+    "maxPages": 5,
+    "timing": "fixed",
+    "frames": 600,
+    "cues": [
+      18,
+      90,
+      207,
+      300,
+      425,
+      497
+    ],
+    "description": "Dark launch film with screenshot collage, feature close-ups and CTA."
+  },
+  "orbit": {
+    "composition": "OrbitalShowcase",
+    "component": "Orbit",
+    "module": "Orbit",
+    "minPages": 5,
+    "maxPages": 5,
+    "timing": "fixed",
+    "frames": 540,
+    "cues": [
+      30,
+      105,
+      215,
+      325,
+      442
+    ],
+    "description": "Neon orbital gallery, rotating screenshot depth and a cinematic final lineup."
+  },
+  "kinetic": {
+    "composition": "KineticPromo",
+    "component": "Kinetic",
+    "module": "Kinetic",
+    "minPages": 5,
+    "maxPages": 5,
+    "timing": "fixed",
+    "frames": 480,
+    "cues": [
+      15,
+      63,
+      138,
+      213,
+      288,
+      365
+    ],
+    "description": "Bold kinetic typography, alternating split screens and graphic wipes."
+  },
+  "prism": {
+    "composition": "PrismGallery",
+    "component": "Prism",
+    "module": "Prism",
+    "minPages": 5,
+    "maxPages": 5,
+    "timing": "fixed",
+    "frames": 540,
+    "cues": [
+      32,
+      104,
+      194,
+      284,
+      380
+    ],
+    "description": "Hinged accordion screens, layered glass reveals and prismatic light sweeps."
+  }
+}
