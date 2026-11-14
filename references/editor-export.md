@@ -1,10 +1,27 @@
 # Editing in Jianying or CapCut Desktop
 
-## Native editable Storybook (macOS preview)
+## All seven effects and portable destination installation
 
-For Storybook requests that require replacing screenshots and editing page text, prefer `scripts/storybook_native.py --job /path/to/storybook-job --out /path/to/new-draft` with the isolated Python environment containing pyJianYingDraft 0.2.7 and Pillow. It uses the normalized project and original screenshots directly; a clean MP4 is not needed. macOS Arial fonts and FFmpeg on PATH are required by the current export/mixing path. When audio is configured, the current mixer also requires `out/video-silent.mp4`: render the regular video first, then export the native draft. A prepared silent job needs no video render.
+Use `scripts/motion_native.py --job /path/to/prepared-job --out /path/to/new-native-draft` with isolated Python, pyJianYingDraft 0.2.7 and Pillow. It reads the selected template and exports original screenshot images, separate native text and 2D keyframes. Storybook delegates to the established book layout; Spotlight, Launch, Orbit, Kinetic, Prism and Flipstack have new experimental recipes. They do not reproduce all perspective, page meshes, crop regions, shadows, blur or typography. Flipstack uses simplified native page transitions. Orbit splits image occurrences when depth order changes; replace every occurrence or regenerate.
 
-This path preserves the book layout using separate native image and text segments, with synchronized horizontal-fold keyframes. In Jianying, screenshot replacement must keep **复用原视频效果** checked. In CapCut, verify the installed build’s replacement options; this operation has not yet passed acceptance testing. Each text line is independently editable; long replacements may need font resizing. It does not reproduce the original curved mesh, perspective or dynamic shadow exactly. Do not market it as pixel-identical. The portable/baked workflow below remains available for other templates.
+For a portable pack, arrange generated drafts as `<drafts>/<template>` and matching prepared jobs as `<jobs>/<template>`. Render each job's original `out/video-silent.mp4` first, then:
+
+```sh
+python3 scripts/editor_bundle.py --drafts /path/to/drafts --jobs /path/to/jobs --out /path/to/new-pack
+```
+
+The pack stores relative media references and full-effect reference MP4s. It includes a standard-library installer and a per-effect, per-OS, per-app acceptance CSV. On the destination computer, install with `install_editor_bundle.py`; see [Windows/macOS instructions](windows-acceptance.md). It discovers no library automatically: use the actual folder configured in the installed editor. CapCut requires an empty local project template. Jianying can create an independent legacy draft without one, or adapt a readable empty template. Encrypted template files are explicitly unsupported; do not overwrite or rename them.
+
+The installer rebases media paths at the final destination, generates fresh IDs, writes root/timeline payloads for modern templates, and refuses existing outputs or nonempty templates. Installed projects use absolute paths; moving them requires reinstalling the portable source. `capcut_native.py` remains the older Storybook compatibility adapter; the new installer is the all-effects cross-machine route.
+
+**Validation boundary:** all seven native recipes generated structurally valid drafts locally. Windows path strings, Unicode media names, legacy IDs, modern timeline consistency, template guards and non-overwrite behavior are covered by automated tests. These tests run on macOS, not Windows. The new all-effects bundle has no completed GUI acceptance yet: native window clicks failed with `windowNotFoundAtPosition` on both local apps. Home-screen cards alone do not prove opening. Previous Storybook client evidence below does not validate the new installer or the six new recipes. Windows client acceptance is pending by agreement with the user.
+
+
+## Earlier Storybook client evidence (macOS)
+
+For Storybook requests that require replacing screenshots and editing page text, prefer `scripts/storybook_native.py --job /path/to/storybook-job --out /path/to/new-draft` with the isolated Python environment containing pyJianYingDraft 0.2.7 and Pillow. It uses the normalized project and original screenshots directly; a clean MP4 is not needed. Arial fonts (macOS Supplemental, Windows Fonts, or SCREENSHOT_MOTION_FONT_DIR) and FFmpeg on PATH are required by the current export/mixing path. When audio is configured, the current mixer also requires `out/video-silent.mp4`: render the regular video first, then export the native draft. A prepared silent job needs no video render.
+
+This path preserves the book layout using separate native image and text segments, with synchronized horizontal-fold keyframes. In Jianying, screenshot replacement must keep **复用原视频效果** checked. In CapCut, verify the installed build’s replacement options; this operation has not yet passed acceptance testing. Each text line is independently editable; long replacements may need font resizing. It does not reproduce the original curved mesh, perspective or dynamic shadow exactly. Do not market it as pixel-identical. The portable/baked workflow below remains available when faithful original rendering matters more than native layers.
 
 Local validation on 2026-11-14: Jianying macOS 11.8.0 opened the native project, displayed the cover and inner-page layout, and successfully replaced a screenshot through “替换片段” with the effect-retention option checked. The replacement retained placement and keyframes. Text-edit/save/reopen and final MP4 export still require verification; Windows is unverified. CapCut validation is recorded below.
 
@@ -24,7 +41,7 @@ The adapter reads the empty template, creates new project/timeline IDs, transfer
 ### Export and verify
 
 1. Prepare a normalized Storybook job using `motion.py prepare`; reuse a compatible existing job when available. The exporter reads `project.json`, `public/screenshots/`, and optional audio configuration.
-2. Run the native exporter with an isolated Python containing `pyJianYingDraft==0.2.7` and Pillow. Audio stems additionally use the existing FFmpeg workflow. This exporter currently locates Arial under `/System/Library/Fonts/Supplemental`.
+2. Run the native exporter with an isolated Python containing `pyJianYingDraft==0.2.7` and Pillow. Audio stems additionally use the existing FFmpeg workflow. The exporter locates Arial under macOS Supplemental, Windows Fonts, or `SCREENSHOT_MOTION_FONT_DIR`.
    ```sh
    /path/to/isolated-python /path/to/skill/scripts/storybook_native.py --job /path/to/storybook-job --out /path/to/new-draft
    ```

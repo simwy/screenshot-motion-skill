@@ -4,7 +4,7 @@
 
 **Your screenshots. A product video. Ready for your next launch.**
 
-An agent skill that turns screenshots into motion, writes the captions, and delivers an MP4. Storybook also exports native editable CapCut drafts (macOS preview) with separate screenshot and text layers; other templates offer desktop editing packs.
+An agent skill that turns screenshots into motion, writes the captions, and delivers an MP4. All seven effects also have experimental native editable CapCut previews with separate screenshot and text layers, plus a portable installer for macOS and Windows. Windows client acceptance is pending.
 
 ## Effects
 
@@ -22,7 +22,7 @@ An agent skill that turns screenshots into motion, writes the captions, and deli
 
 ## Keep creating in CapCut: replace screenshots and edit page text
 
-**Storybook exports a native editable CapCut draft (macOS preview).** Continue working in the desktop editor after generation: replace product screenshots, revise page copy, and refine the edit.
+**All seven effects can generate native editable CapCut preview drafts.** The screenshot below shows the previously verified Storybook preview on macOS. Continue working in the desktop editor after generation: replace product screenshots, revise page copy, and refine the edit.
 
 ![Storybook native draft in CapCut for macOS, showing the book preview and separate text tracks](docs/previews/capcut-storybook-editable.jpg)
 
@@ -32,19 +32,20 @@ An agent skill that turns screenshots into motion, writes the captions, and deli
 - **Edit page copy:** cover titles, body copy, chapter labels and page numbers are native text segments available in the text panel.
 - **Keep the book layout:** covers, facing pages, colors and decorations follow the template layout, with synchronized keyframes for page changes.
 
-This optional output is a local draft folder with its media. It requires the desktop app, an isolated Python environment with pyJianYingDraft 0.2.7 and Pillow, macOS Arial fonts, and an empty project created in the target CapCut build. Media paths are absolute: regenerate at the destination when moving it to another machine. The agent performs these steps when the local tools and permissions are available.
+This optional output is a local draft folder with its media. Generation uses an isolated Python environment with pyJianYingDraft 0.2.7 and Pillow; Storybook also needs Arial (macOS, Windows, or `SCREENSHOT_MOTION_FONT_DIR`). The portable acceptance pack includes every generated effect, matching reference MP4s and a standard-library Python installer that rebuilds paths on the destination machine. CapCut requires a new empty project from that installed build. [Windows/macOS installation and acceptance →](references/windows-acceptance.md)
 
 Ask your agent:
 
 ```text
-Make a Storybook video and export a native editable CapCut draft.
+Make a video with the selected effect and export a native editable CapCut preview draft.
+Include a portable pack for macOS and Windows, with the matching reference MP4.
 I want to replace screenshots and edit cover and page text in CapCut,
 while preserving as much of the original layout and effect as possible.
 ```
 
 The MP4 example below requests a video only. To receive the native draft as well, explicitly request it as above.
 
-**Current scope:** native editable export is Storybook-only. Opening, cover/inner-page layout and the native text panel were verified on CapCut macOS 9.7.1 using a local empty-project template. Screenshot replacement, text-edit/save/reopen and final video export still need acceptance testing in CapCut. Native horizontal folding approximates the original animation; curved paper, perspective and dynamic shadows are not identical. Windows and other CapCut versions are unverified. [Editing and compatibility →](references/editor-export.md)
+**Current scope:** draft generation covers all seven effects; destination installation handles macOS/Windows paths and readable legacy/modern draft schemas. The six newer native recipes are experimental 2D approximations, particularly simplified for Flipstack. Native perspective, mesh bending, lighting, crops and typography can differ from the original render. Only the earlier Storybook preview has client evidence: opening, cover/inner layout and text panel in CapCut macOS 9.7.1. The new all-effects bundle has not passed client acceptance; this Mac's window-control errors blocked further GUI checks, and Windows has no test machine yet. Replacement, text-edit/save/reopen and final native export remain pending. [Editing and compatibility →](references/editor-export.md)
 
 ## How to use
 
@@ -84,7 +85,7 @@ Your agent writes the copy, creates the animation, checks the result, and delive
 - **Optional music and sound effects** from audio you provide.
 - **An optional editing pack** with clean motion clips, editable SRT captions, separate audio tracks, and your screenshots.
 
-- **An optional native Storybook draft for CapCut** with replaceable screenshots, separate text layers and page keyframes. See the showcase above for compatibility and validation scope.
+- **Optional native preview drafts for all seven effects in CapCut** with replaceable screenshots, separate text layers and 2D keyframes, plus matching full-effect reference videos. See the showcase above for compatibility and validation scope.
 
 ## Good to know
 

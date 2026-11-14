@@ -5,6 +5,7 @@ No rendered screenshot plates. Paper is procedural artwork; the mesh curl is
 approximated by a horizontal page fold. Requires pyJianYingDraft and Pillow.
 """
 import argparse
+import os
 import json
 from pathlib import Path
 import shutil
@@ -19,7 +20,7 @@ def ease(t):
 
 def export(job, out):
     job, out = Path(job).resolve(), Path(out).resolve()
-    p = json.loads((job/'project.json').read_text())
+    p = json.loads((job/'project.json').read_text(encoding='utf-8'))
     if p['template'] != 'storybook':
         raise ValueError('Native layout currently supports storybook only')
     if out.exists():
@@ -30,9 +31,13 @@ def export(job, out):
         if not source.is_relative_to(job/'public/screenshots') or not source.is_file():
             raise ValueError('Missing or unsafe screenshot')
         sources.append(source)
-    fontroot = Path('/System/Library/Fonts/Supplemental')
-    if not (fontroot/'Arial.ttf').exists():
-        raise ValueError('This macOS exporter needs locally installed Arial fonts')
+    candidates = [Path(os.environ.get('SCREENSHOT_MOTION_FONT_DIR', '/System/Library/Fonts/Supplemental')), Path(os.environ.get('WINDIR', 'C:/Windows'))/'Fonts']
+    fontroot = next((p for p in candidates if (p/'Arial.ttf').exists() or (p/'arial.ttf').exists()), None)
+    if fontroot is None:
+        raise ValueError('Arial fonts required: set SCREENSHOT_MOTION_FONT_DIR to a directory containing Arial.ttf and Arial Bold.ttf (or arial.ttf and arialbd.ttf)')
+    regular = fontroot/('Arial.ttf' if (fontroot/'Arial.ttf').exists() else 'arial.ttf')
+    boldfont = fontroot/('Arial Bold.ttf' if (fontroot/'Arial Bold.ttf').exists() else 'arialbd.ttf')
+    if not boldfont.is_file(): raise ValueError('Arial bold font is missing')
     n, hold = len(sources), p['holdFrames']
     close = 90+n*hold+(n-1)*42
     total = close+102
@@ -107,7 +112,7 @@ def export(job, out):
             start = max(start, 68 if start == 0 else start+21)
             if end == close+42: end = close+21
         if not value or end <= start: return
-        font=ImageFont.truetype(str(fontroot/('Arial Bold.ttf' if bold else 'Arial.ttf')),size)
+        font=ImageFont.truetype(str(boldfont if bold else regular),size)
         width=font.getlength(value)
         if width>maxwidth:
             size=max(10,size*maxwidth/width); width=maxwidth
@@ -178,7 +183,7 @@ def export(job, out):
                 script.add_track(draft.TrackType.audio,role)
                 script.add_segment(draft.AudioSegment(str(target),draft.trange(0,us(total))),role)
     script.save()
-    meta_path=out/'draft_meta_info.json'; meta=json.loads(meta_path.read_text())
+    meta_path=out/'draft_meta_info.json'; meta=json.loads(meta_path.read_text(encoding='utf-8'))
     meta.update(draft_name=out.name,draft_fold_path=str(out),draft_root_path=str(out.parent),tm_duration=us(total))
     meta_path.write_text(json.dumps(meta,ensure_ascii=False))
     (out/'EDITING.md').write_text('''# Storybook 原生可编辑草稿

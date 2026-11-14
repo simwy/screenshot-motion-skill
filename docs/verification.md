@@ -22,3 +22,27 @@ This audit compares the repository README with the skill routing, template regis
 - Found that the locally installed skill still had six templates despite the repository documenting seven. Backed up the installed copy and synchronized tracked resources, including Flipstack, then validated both skill copies.
 
 The native fold approximates curved paper, perspective and dynamic shadows. Text inside screenshot pixels is not a native text layer. Windows, other app versions and complete editing/export round trips are not established by this audit.
+
+## All-effects portable preview implementation — 2026-11-15
+
+The earlier audit above describes the previous Storybook-only release. The new `motion_native.py` adds six 2D native recipes and delegates Storybook to its existing exporter. Fresh exports covered all seven effects:
+
+| Effect | Duration in this fixture | Native segments |
+| --- | --- | --- |
+| Spotlight | 12 s | 29 |
+| Launch | 20 s | 58 |
+| Orbit | 18 s | 81 |
+| Kinetic | 16 s | 77 |
+| Prism | 18 s | 69 |
+| Flipstack | 20 s | 47 |
+| Storybook | 15.8 s (2 pages) | 56 |
+
+All segment material IDs resolve; target time ranges fit the composition; image and text materials are separate. The fixtures repeat a supplied screenshot and use generic sample copy, so they test export coverage rather than a finished product campaign. The matching original-render MP4s accompany the acceptance bundle, not the public repository.
+
+The installer is standard-library Python and reconstructs paths at the destination. Automated tests exercise Windows-style input paths, Unicode media, missing/traversing/symlink media rejection, fresh legacy IDs, matching modern root/timeline payloads, empty-template guards and output non-overwrite. These tests run on this Mac; they are not Windows application tests.
+
+Both local editors listed the new all-effects draft cards. Further native opening/visual checks were blocked by the computer-control service repeatedly returning `windowNotFoundAtPosition`; CapCut also temporarily returned a launch timeout. Changing window size and dismissing startup dialogs did not resolve the coordinate error. No new per-effect GUI acceptance is claimed. The earlier Storybook screenshots and results remain scoped to their earlier exporter, versions and checks.
+
+The user has no Windows test machine and requested a Windows acceptance pack first. The bundle includes seven portable drafts, seven original-effect MP4 references, an installer, checksums and a 28-row effect × OS × editor acceptance sheet. Every row begins pending for this exact bundle. The native 2D approximation is visibly different in principle from the original renderer, especially Flipstack; native full-fidelity and complete editing/export round trips remain unverified.
+
+Final local checks for this implementation: 12 unit tests passed; all seven portable sources installed into fresh temporary libraries for each of the two editor schemas (14 installs), with every referenced media file present. All seven reference MP4s probe as 1920×1080 at 30 fps with the expected frame counts; one representative rendered frame per effect was inspected. Orbit's generic sample headline approaches/overlaps a foreground card, so the fixture is not a polished copy-layout acceptance result. SHA-256 verification passed for all 89 bundled files. These results do not include native GUI playback or Windows execution.

@@ -1,11 +1,11 @@
 ---
 name: screenshot-motion-skill
-description: Create product videos from screenshots using card spotlight, dark launch-film, orbital gallery, kinetic graphics, prismatic folds, floating page stacks, or page-turn storybook templates, with editable copy, optional licensed audio, portable desktop editing packs, and native editable Storybook drafts for Jianying and CapCut on macOS. Use for screenshot promos, app launch videos, flipbooks, or extending this template library.
+description: Create product videos from screenshots using card spotlight, dark launch-film, orbital gallery, kinetic graphics, prismatic folds, floating page stacks, or page-turn storybook templates, with editable copy, optional licensed audio, portable desktop editing packs, and experimental native editable previews for all seven templates with macOS/Windows draft installers for Jianying and CapCut. Use for screenshot promos, app launch videos, flipbooks, or extending this template library.
 ---
 
 # Screenshot Motion Skill
 
-Produce a real video and its editable Remotion source project with one of seven implemented templates. Native desktop-editor drafts are a separate optional Storybook delivery:
+Produce a real video and its editable Remotion source project with one of seven implemented templates. Native desktop-editor previews are a separate optional delivery for all seven templates; their 2D reconstructions and client acceptance differ from the rendered effects:
 
 | Template | Effect | Screenshots | Duration |
 | --- | --- | --- | --- |
@@ -51,11 +51,13 @@ Accept revision requests in natural language, update the generated project, and 
 
 ## Desktop editing delivery
 
-When the user requests a Jianying or CapCut project with replaceable screenshots or editable page text, use the **native editable Storybook** workflow in [editing export and compatibility](references/editor-export.md): `scripts/storybook_native.py`, plus `scripts/capcut_native.py` for CapCut using a local empty-project template. It creates native image/text layers with synchronized keyframes and restores the book layout instead of adding generic bottom subtitles. This mode currently supports Storybook on macOS; do not silently substitute it for another chosen template.
+When the user requests Jianying or CapCut previews with replaceable screenshots or editable copy, use `scripts/motion_native.py` for the selected template; it delegates Storybook to the existing book exporter. Read [editing export and compatibility](references/editor-export.md). All seven templates have native image/text/keyframe recipes. Six newer recipes are experimental 2D reconstructions; do not claim their 3D motion is identical or their client compatibility is already verified.
 
-For other templates or a portable media delivery, use the clean render and editing pack workflow in the same reference. Complex motion remains baked into those clips. The separate `jianying.py` adapter wraps baked clips and is not the editable Storybook exporter.
+Generate the matching full rendered reference as well. For cross-machine delivery use `scripts/editor_bundle.py`, then `scripts/install_editor_bundle.py` on the destination. The installer supports macOS and Windows paths, Unicode filenames and readable legacy/modern empty-project schemas. CapCut requires a new empty project from the destination build. Jianying can use a separate legacy draft without a template; encrypted templates are unsupported and must not be overwritten. Windows packaging is implemented; Windows client acceptance is pending. Never turn packaging tests into a claim that the draft opens or renders correctly.
 
-Deliver the actual draft folder and explain how to replace screenshots (Jianying: retain “复用原视频效果”; CapCut: verify its local replacement options) and edit native text. Keep a styled reference render when available. Disclose that the native horizontal fold approximates the original curved paper mesh; screenshot pixels are not editable text. Record exact app/version and distinguish draft opening, visual checks, screenshot replacement, text editing, save/reopen, and MP4 export results. Do not claim checks that were not completed. Add a uniquely named draft to the local library when requested for testing/opening; otherwise return a standalone folder. Never overwrite existing drafts.
+Deliver the actual bundle and [acceptance checklist](references/windows-acceptance.md). Record each effect × OS × app separately: opening, visual checks, screenshot replacement, text editing, save/reopen and MP4 export. Preserve image keyframes when replacing; in Jianying retain “复用原视频效果”. Orbit has multiple segments for one screenshot, so replace every occurrence or regenerate. Text inside screenshots remains pixels. Some typography, perspective, crops, blur, shadows and geometry differ; Flipstack is substantially simplified in native 2D. Keep the clean-video editing pack available when original visual fidelity matters more than native layers. Do not silently substitute a baked MP4 for an editable draft.
+
+Add uniquely named projects to the user's local library when requested for testing/opening. Otherwise return a standalone bundle. Never overwrite existing drafts. The English README uses an actual CapCut screenshot and terminology; the Chinese README uses the separate Jianying capture.
 
 ## Stable implementation details
 
