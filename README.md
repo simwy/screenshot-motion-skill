@@ -4,7 +4,7 @@
 
 **Your screenshots. A product video. Ready for your next launch.**
 
-An agent skill that turns screenshots into motion, writes the captions, and delivers an MP4. Storybook also exports native editable CapCut drafts with replaceable screenshots and page text; other templates offer desktop editing packs.
+An agent skill that turns screenshots into motion, writes the captions, and delivers an MP4. Storybook also exports native editable CapCut drafts (macOS preview) with separate screenshot and text layers; other templates offer desktop editing packs.
 
 ## Effects
 
@@ -22,7 +22,7 @@ An agent skill that turns screenshots into motion, writes the captions, and deli
 
 ## Keep creating in CapCut: replace screenshots and edit page text
 
-**Storybook exports a native editable CapCut draft.** Continue working in the desktop editor after generation: replace product screenshots, revise page copy, and refine the edit.
+**Storybook exports a native editable CapCut draft (macOS preview).** Continue working in the desktop editor after generation: replace product screenshots, revise page copy, and refine the edit.
 
 ![Storybook native draft in CapCut for macOS, showing the book preview and separate text tracks](docs/previews/capcut-storybook-editable.jpg)
 
@@ -32,6 +32,8 @@ An agent skill that turns screenshots into motion, writes the captions, and deli
 - **Edit page copy:** cover titles, body copy, chapter labels and page numbers are native text segments available in the text panel.
 - **Keep the book layout:** covers, facing pages, colors and decorations follow the template layout, with synchronized keyframes for page changes.
 
+This optional output is a local draft folder with its media. It requires the desktop app, an isolated Python environment with pyJianYingDraft 0.2.7 and Pillow, macOS Arial fonts, and an empty project created in the target CapCut build. Media paths are absolute: regenerate at the destination when moving it to another machine. The agent performs these steps when the local tools and permissions are available.
+
 Ask your agent:
 
 ```text
@@ -39,6 +41,8 @@ Make a Storybook video and export a native editable CapCut draft.
 I want to replace screenshots and edit cover and page text in CapCut,
 while preserving as much of the original layout and effect as possible.
 ```
+
+The MP4 example below requests a video only. To receive the native draft as well, explicitly request it as above.
 
 **Current scope:** native editable export is Storybook-only. Opening, cover/inner-page layout and the native text panel were verified on CapCut macOS 9.7.1 using a local empty-project template. Screenshot replacement, text-edit/save/reopen and final video export still need acceptance testing in CapCut. Native horizontal folding approximates the original animation; curved paper, perspective and dynamic shadows are not identical. Windows and other CapCut versions are unverified. [Editing and compatibility →](references/editor-export.md)
 
@@ -76,7 +80,7 @@ Your agent writes the copy, creates the animation, checks the result, and delive
 
 ## What you get
 
-- **A finished MP4** and the editable source project.
+- **A finished MP4** and the editable Remotion source project. The source project is for rerendering through the skill; it is not a CapCut draft.
 - **Optional music and sound effects** from audio you provide.
 - **An optional editing pack** with clean motion clips, editable SRT captions, separate audio tracks, and your screenshots.
 
@@ -93,4 +97,4 @@ Your agent writes the copy, creates the animation, checks the result, and delive
 
 The template library can grow without replacing existing effects. [Contribute an effect →](references/extending.md)
 
-Only lightweight GIF previews and the CapCut UI showcase capture ship with the skill. Full demo videos, original screenshots, runtime dependencies, and generated editing packs stay outside the installation. [Preview details →](docs/previews/README.md)
+Only lightweight GIF previews and the CapCut/Jianying UI showcase captures ship with the skill. Full demo videos, original screenshots, runtime dependencies, and generated editing packs stay outside the installation. [Preview details →](docs/previews/README.md)

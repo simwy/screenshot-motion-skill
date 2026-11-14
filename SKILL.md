@@ -5,7 +5,7 @@ description: Create product videos from screenshots using card spotlight, dark l
 
 # Screenshot Motion Skill
 
-Produce a real, editable video with one of seven implemented templates:
+Produce a real video and its editable Remotion source project with one of seven implemented templates. Native desktop-editor drafts are a separate optional Storybook delivery:
 
 | Template | Effect | Screenshots | Duration |
 | --- | --- | --- | --- |
@@ -55,7 +55,7 @@ When the user requests a Jianying or CapCut project with replaceable screenshots
 
 For other templates or a portable media delivery, use the clean render and editing pack workflow in the same reference. Complex motion remains baked into those clips. The separate `jianying.py` adapter wraps baked clips and is not the editable Storybook exporter.
 
-Deliver the actual draft folder and explain how to replace screenshots (retain “复用原视频效果”) and edit native text. Keep a styled reference render when available. Disclose that the native horizontal fold approximates the original curved paper mesh; screenshot pixels are not editable text. Record exact app/version and distinguish draft opening, visual checks, screenshot replacement, text editing, save/reopen, and MP4 export results. Do not claim checks that were not completed. Add a uniquely named draft to the local library when requested for testing/opening; otherwise return a standalone folder. Never overwrite existing drafts.
+Deliver the actual draft folder and explain how to replace screenshots (Jianying: retain “复用原视频效果”; CapCut: verify its local replacement options) and edit native text. Keep a styled reference render when available. Disclose that the native horizontal fold approximates the original curved paper mesh; screenshot pixels are not editable text. Record exact app/version and distinguish draft opening, visual checks, screenshot replacement, text editing, save/reopen, and MP4 export results. Do not claim checks that were not completed. Add a uniquely named draft to the local library when requested for testing/opening; otherwise return a standalone folder. Never overwrite existing drafts.
 
 ## Stable implementation details
 
