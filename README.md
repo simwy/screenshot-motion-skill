@@ -4,7 +4,7 @@
 
 **Your screenshots. A product video. Ready for your next launch.**
 
-An agent skill that turns screenshots into motion, writes the captions, and delivers an MP4 plus an optional editing pack for further work in Jianying or CapCut Desktop.
+An agent skill that turns screenshots into motion, writes the captions, and delivers an MP4. Storybook also exports native editable Jianying drafts with replaceable screenshots and page text; other templates offer desktop editing packs.
 
 ## Effects
 
@@ -17,6 +17,28 @@ An agent skill that turns screenshots into motion, writes the captions, and deli
 | ![Kinetic](docs/previews/kinetic.gif) | ![Prism](docs/previews/prism.gif) |
 
 <sub>Small, accelerated, silent previews. Final videos: 1080p · 30 fps.</sub>
+
+## Keep creating in Jianying: replace screenshots and edit page text
+
+**Storybook exports a native editable Jianying draft.** Continue working in the desktop editor after generation: replace product screenshots, revise page copy, and refine the edit.
+
+![Storybook native draft in Jianying for macOS, showing the book preview and separate text tracks](docs/previews/jianying-storybook-editable.jpg)
+
+<sub>Actual Jianying macOS 11.8.0 capture. The book preview appears above independent text tracks; screenshot images, paper and background also have their own layers.</sub>
+
+- **Replace screenshots:** each screenshot is an image segment. Choose “替换片段” (Replace clip) and keep “复用原视频效果” (Reuse original effects) checked to retain placement and keyframes.
+- **Edit page copy:** cover titles, body copy, chapter labels and page numbers are native text segments available in the text panel.
+- **Keep the book layout:** covers, facing pages, colors and decorations follow the template layout, with synchronized keyframes for page changes.
+
+Ask your agent:
+
+```text
+Make a Storybook video and export a native editable Jianying draft.
+I want to replace screenshots and edit cover and page text in Jianying,
+while preserving as much of the original layout and effect as possible.
+```
+
+**Current scope:** native editable export is Storybook-only. Draft opening, layout display and screenshot replacement were verified on Jianying macOS 11.8.0. Text-edit/save/reopen and final video export have not completed acceptance testing. Native horizontal folding approximates the original animation; curved paper, perspective and dynamic shadows are not identical. Windows and CapCut are unverified. [Editing and compatibility →](references/editor-export.md)
 
 ## How to use
 
@@ -56,7 +78,7 @@ Your agent writes the copy, creates the animation, checks the result, and delive
 - **Optional music and sound effects** from audio you provide.
 - **An optional editing pack** with clean motion clips, editable SRT captions, separate audio tracks, and your screenshots.
 
-In your desktop editor, you can adjust captions, sound, and cuts. Complex animation stays baked into the clips. Native Jianying draft export is experimental; latest-version Mac/Windows compatibility is not verified. [Editing guide →](references/editor-export.md)
+- **An optional native Storybook draft for Jianying** with replaceable screenshots, separate text layers and page keyframes. See the showcase above for compatibility and validation scope.
 
 ## Good to know
 
@@ -69,4 +91,4 @@ In your desktop editor, you can adjust captions, sound, and cuts. Complex animat
 
 The template library can grow without replacing existing effects. [Contribute an effect →](references/extending.md)
 
-Only lightweight GIF previews ship with the skill. Full demo videos, original screenshots, runtime dependencies, and generated editing packs stay outside the installation. [Preview details →](docs/previews/README.md)
+Only lightweight GIF previews and the Jianying UI showcase capture ship with the skill. Full demo videos, original screenshots, runtime dependencies, and generated editing packs stay outside the installation. [Preview details →](docs/previews/README.md)

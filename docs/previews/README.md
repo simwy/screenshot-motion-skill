@@ -22,3 +22,7 @@ The skill code's MIT license does not grant rights to SYTASK branding or screens
 ## Publishing full videos
 
 Commit the skill source and these small previews. Create a GitHub release, attach the full MP4s as separate release assets, and then add their verified URLs to the README if desired. Do not commit those MP4s to the source tree. See [GitHub's release instructions](https://docs.github.com/en/repositories/releasing-projects-on-github/managing-releases-in-a-repository). No assets are uploaded by this skill automatically.
+
+## Jianying editable Storybook capture
+
+`jianying-storybook-editable.jpg` is an unaltered application screenshot captured on 2026-11-14 in Jianying macOS 11.8.0, using the native editable Storybook delivery draft. It shows an inner-page hold and separate native text tracks. This is a UI capture, not an AI-generated mockup or proof of frame-identical page-turn animation. The project owner requested its inclusion in the README.

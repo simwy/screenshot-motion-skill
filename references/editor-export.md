@@ -1,5 +1,27 @@
 # Editing in Jianying or CapCut Desktop
 
+## Native editable Storybook (macOS preview)
+
+For Storybook requests that require replacing screenshots and editing page text, prefer `scripts/storybook_native.py --job /path/to/storybook-job --out /path/to/new-draft` with the isolated Python environment containing pyJianYingDraft 0.2.7 and Pillow. It uses the normalized project and original screenshots directly; a clean MP4 is not needed. macOS Arial fonts are required.
+
+This path preserves the book layout using separate native image and text segments, with synchronized horizontal-fold keyframes. Screenshot replacement must keep **复用原视频效果** checked. Each text line is independently editable; long replacements may need font resizing. It does not reproduce the original curved mesh, perspective or dynamic shadow exactly. Do not market it as pixel-identical. The portable/baked workflow below remains available for other templates.
+
+Local validation on 2026-11-14: Jianying macOS 11.8.0 opened the native project, displayed the cover and inner-page layout, and successfully replaced a screenshot through “替换片段” with the effect-retention option checked. The replacement retained placement and keyframes. Text-edit/save/reopen and final MP4 export still require verification; Windows/CapCut are unverified.
+
+### Export and verify
+
+1. Prepare a normalized Storybook job using `motion.py prepare`; reuse a compatible existing job when available. The exporter reads `project.json`, `public/screenshots/`, and optional audio configuration.
+2. Run the native exporter with an isolated Python containing `pyJianYingDraft==0.2.7` and Pillow. Audio stems additionally use the existing FFmpeg workflow. This exporter currently locates Arial under `/System/Library/Fonts/Supplemental`.
+   ```sh
+   /path/to/isolated-python /path/to/skill/scripts/storybook_native.py --job /path/to/storybook-job --out /path/to/new-draft
+   ```
+3. On the destination machine, open the uniquely named draft in Jianying. The draft includes its media and `EDITING.md`; it does not depend on temporary rendered clips. If the library list does not refresh, save the current work before restarting the app. Discover the actual application path rather than relying on its display name.
+4. Check the cover, each page hold, page-turn midpoints and closing. Compare text position/size, screenshot fit, occlusion and timing against the source layout. A successful JSON export is not visual acceptance.
+5. In a test copy, select a screenshot segment → **替换片段** → choose an image → keep **复用原视频效果** checked. Verify placement and keyframes, including through the turn. Select a text segment and edit its native text field; verify focus before typing so shortcuts do not modify the timeline. Check save/reopen and final export before claiming the full workflow passed.
+6. Deliver a clean draft without test edits, with a concise account of completed checks and remaining differences. Longer replacement text and changed image aspect ratios may need layout adjustment.
+
+Never overwrite an existing draft. Adding a uniquely named draft to the local library is appropriate when the user requests opening/testing it there; otherwise deliver the standalone folder. Regenerate at the final path because media paths are absolute.
+
 ## Deliverables and boundaries
 
 The normal delivery is an MP4 and an editable source project. When the user requests desktop editing, also export a portable editing pack. Do not present a single flattened MP4 as an editable project.
@@ -36,9 +58,9 @@ The pack includes `visuals-clean.mp4`, numbered `clips/`, `titles.srt`, optional
 
 CapCut Desktop officially documents importing SRT files as editable text clips: [CapCut subtitle import](https://www.capcut.com/help/how-to-import-subtitles). This is a media/subtitle workflow, not native project interchange. Jianying is a separate application: verify local subtitle import in the user's exact installed build. If unavailable, provide the copy and shot timings for manual text creation.
 
-Native draft formats, registration, paths and fonts can differ by OS and application version. “Latest version” is not a reproducible compatibility target. Record the exact app version, OS and successful import check before publishing compatibility claims. No installed Jianying/CapCut app was available during this implementation, so this package does not claim native import validation on either platform.
+Native draft formats, registration, paths and fonts can differ by OS and application version. “Latest version” is not a reproducible compatibility target. Record the exact app version, OS and successful import check before publishing compatibility claims. The native Storybook macOS validation is recorded above. It does not establish compatibility for other platforms, apps, versions, or the separate baked-clip adapter.
 
-## Experimental native Jianying draft
+## Legacy baked-clip Jianying adapter
 
 A separate optional adapter creates a legacy plaintext draft with motion clips, editable title/description text tracks and separate audio tracks. It does not convert React, CSS transforms, or the page mesh to native animation keyframes.
 

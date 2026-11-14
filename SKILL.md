@@ -1,6 +1,6 @@
 ---
 name: screenshot-motion-skill
-description: Create product videos from screenshots using card spotlight, dark launch-film, orbital gallery, kinetic graphics, prismatic folds, or page-turn storybook templates, with editable copy, optional licensed audio, and portable desktop editing packs. Use for screenshot promos, app launch videos, flipbooks, or extending this template library.
+description: Create product videos from screenshots using card spotlight, dark launch-film, orbital gallery, kinetic graphics, prismatic folds, or page-turn storybook templates, with editable copy, optional licensed audio, portable desktop editing packs, and native editable Storybook drafts for Jianying on macOS. Use for screenshot promos, app launch videos, flipbooks, or extending this template library.
 ---
 
 # Screenshot Motion Skill
@@ -50,7 +50,11 @@ Accept revision requests in natural language, update the generated project, and 
 
 ## Desktop editing delivery
 
-When requested, follow [editing export and compatibility](references/editor-export.md). Render the clean mode and export the portable pack with editable SRT captions, independent audio stems, original screenshots and shot clips. Explain that motion geometry remains baked and imported captions need editor styling. Keep the final styled MP4 as a reference. Verify the user's app/version before claiming native draft support; the optional legacy Jianying adapter is experimental and is not verified in current macOS/Windows or CapCut. Never silently install drafts into an application's library.
+When the user requests a Jianying project with replaceable screenshots or editable page text, use the **native editable Storybook** workflow in [editing export and compatibility](references/editor-export.md): `scripts/storybook_native.py`. It creates native image/text layers with synchronized keyframes and restores the book layout instead of adding generic bottom subtitles. This mode currently supports Storybook on macOS; do not silently substitute it for another chosen template.
+
+For other templates or a portable media delivery, use the clean render and editing pack workflow in the same reference. Complex motion remains baked into those clips. The separate `jianying.py` adapter wraps baked clips and is not the editable Storybook exporter.
+
+Deliver the actual draft folder and explain how to replace screenshots (retain “复用原视频效果”) and edit native text. Keep a styled reference render when available. Disclose that the native horizontal fold approximates the original curved paper mesh; screenshot pixels are not editable text. Record exact app/version and distinguish draft opening, visual checks, screenshot replacement, text editing, save/reopen, and MP4 export results. Do not claim checks that were not completed. Add a uniquely named draft to the local library when requested for testing/opening; otherwise return a standalone folder. Never overwrite existing drafts.
 
 ## Stable implementation details
 
