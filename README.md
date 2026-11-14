@@ -1,5 +1,7 @@
 # screenshot-motion-skill
 
+**English** | [简体中文](README.zh-CN.md)
+
 **Your screenshots. A product video. Ready for your next launch.**
 
 An agent skill that turns screenshots into motion, writes the captions, and delivers an MP4 plus an optional editing pack for further work in Jianying or CapCut Desktop.
@@ -29,12 +31,19 @@ An agent skill that turns screenshots into motion, writes the captions, and deli
 
 Once the agent confirms installation, start a new task in the same project. These instructions target local agents with file and command access; “Claude” here means **Claude Code**. [Help with installation →](references/installation.md)
 
-**2. Add your screenshots.** Share **five screenshots**, your **app name**, and **one sentence about what it does**. Storybook can use 1–12 screenshots instead.
+**2. Attach your screenshots.** Attach **five screenshots** in the chat box. Storybook can use 1–12 screenshots instead. You can send the images and the text below **together in one message**.
 
-**3. Pick an effect and ask:**
+**3. Add your app details and pick an effect.** Paste this example alongside your attachments, replace the app name and description with your own, and send. The app name is simply a line of text—no separate form or command is needed.
 
 ```text
-Use screenshot-motion-skill with orbit to make a promotional video from these screenshots. Write short English captions and export the MP4.
+Use screenshot-motion-skill to make a promotional video from the attached screenshots.
+
+App name: FocusFlow
+What it does: A task planner that helps people organize their day and stay focused.
+Effect: orbit
+Caption language: English. Write short captions for me.
+Output: Export the MP4.
+Screenshot order: Use the attachment order.
 ```
 
 Replace `orbit` with any effect above: **`spotlight` · `launch` · `storybook` · `orbit` · `kinetic` · `prism`**.
