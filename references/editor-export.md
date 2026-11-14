@@ -6,7 +6,20 @@ For Storybook requests that require replacing screenshots and editing page text,
 
 This path preserves the book layout using separate native image and text segments, with synchronized horizontal-fold keyframes. Screenshot replacement must keep **复用原视频效果** checked. Each text line is independently editable; long replacements may need font resizing. It does not reproduce the original curved mesh, perspective or dynamic shadow exactly. Do not market it as pixel-identical. The portable/baked workflow below remains available for other templates.
 
-Local validation on 2026-11-14: Jianying macOS 11.8.0 opened the native project, displayed the cover and inner-page layout, and successfully replaced a screenshot through “替换片段” with the effect-retention option checked. The replacement retained placement and keyframes. Text-edit/save/reopen and final MP4 export still require verification; Windows/CapCut are unverified.
+Local validation on 2026-11-14: Jianying macOS 11.8.0 opened the native project, displayed the cover and inner-page layout, and successfully replaced a screenshot through “替换片段” with the effect-retention option checked. The replacement retained placement and keyframes. Text-edit/save/reopen and final MP4 export still require verification; Windows is unverified. CapCut validation is recorded below.
+
+### CapCut macOS 9.7.1
+
+Local validation on 2026-11-15: a separately packaged native Storybook draft opened in CapCut 9.7.1 and displayed the cover, inner-page layout, image/text tracks and native Text > Basic panel. Screenshot replacement, text-edit/save/reopen, turn-by-turn visual comparison and final video export remain unverified in CapCut. Do not transfer Jianying acceptance results to CapCut.
+
+This build uses `draft_info.json` and `Timelines/project.json`; the Jianying folder appeared in the library but did not open. Use the schema from a **new empty project created locally in the target CapCut build**, not a renamed Jianying JSON file or an existing user project:
+
+```sh
+/path/to/isolated-python /path/to/skill/scripts/storybook_native.py --job /path/to/storybook-job --out /path/to/new-native-source
+python3 /path/to/skill/scripts/capcut_native.py --source /path/to/new-native-source --template /path/to/empty-capcut-project --out /path/to/new-capcut-draft
+```
+
+The adapter reads the empty template, creates new project/timeline IDs, transfers native layers and media, and writes both timeline payloads and the timeline index. It refuses existing output folders and nonempty templates. Source and template remain untouched. Generate at the final destination. The observed default macOS library is `~/Movies/CapCut/User Data/Projects/com.lveditor.draft/`; discover the actual path on the destination machine. Restart CapCut after saving work if the library has not refreshed, then visually verify the new draft. The English README uses a real CapCut capture; the Chinese README keeps the separate Jianying capture.
 
 ### Export and verify
 

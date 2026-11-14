@@ -27,3 +27,7 @@ Commit the skill source and these small previews. Create a GitHub release, attac
 ## Jianying editable Storybook capture
 
 `jianying-storybook-editable.jpg` is an unaltered application screenshot captured on 2026-11-14 in Jianying macOS 11.8.0, using the native editable Storybook delivery draft. It shows an inner-page hold and separate native text tracks. This is a UI capture, not an AI-generated mockup or proof of frame-identical page-turn animation. The project owner requested its inclusion in the README.
+
+## CapCut editable Storybook capture
+
+`capcut-storybook-editable.jpg` is an unaltered application screenshot captured on 2026-11-15 in CapCut macOS 9.7.1. It shows the native Storybook inner-page layout, separate image/text tracks, keyframes and the Text > Basic panel. The English README uses this capture; the Chinese README uses the Jianying capture above. It is not a mockup or proof of complete replacement/edit/export acceptance. The product screenshot inside the book is the original Chinese-language demo image; the editor and book copy are English.

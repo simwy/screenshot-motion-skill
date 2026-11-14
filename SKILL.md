@@ -1,6 +1,6 @@
 ---
 name: screenshot-motion-skill
-description: Create product videos from screenshots using card spotlight, dark launch-film, orbital gallery, kinetic graphics, prismatic folds, floating page stacks, or page-turn storybook templates, with editable copy, optional licensed audio, portable desktop editing packs, and native editable Storybook drafts for Jianying on macOS. Use for screenshot promos, app launch videos, flipbooks, or extending this template library.
+description: Create product videos from screenshots using card spotlight, dark launch-film, orbital gallery, kinetic graphics, prismatic folds, floating page stacks, or page-turn storybook templates, with editable copy, optional licensed audio, portable desktop editing packs, and native editable Storybook drafts for Jianying and CapCut on macOS. Use for screenshot promos, app launch videos, flipbooks, or extending this template library.
 ---
 
 # Screenshot Motion Skill
@@ -51,7 +51,7 @@ Accept revision requests in natural language, update the generated project, and 
 
 ## Desktop editing delivery
 
-When the user requests a Jianying project with replaceable screenshots or editable page text, use the **native editable Storybook** workflow in [editing export and compatibility](references/editor-export.md): `scripts/storybook_native.py`. It creates native image/text layers with synchronized keyframes and restores the book layout instead of adding generic bottom subtitles. This mode currently supports Storybook on macOS; do not silently substitute it for another chosen template.
+When the user requests a Jianying or CapCut project with replaceable screenshots or editable page text, use the **native editable Storybook** workflow in [editing export and compatibility](references/editor-export.md): `scripts/storybook_native.py`, plus `scripts/capcut_native.py` for CapCut using a local empty-project template. It creates native image/text layers with synchronized keyframes and restores the book layout instead of adding generic bottom subtitles. This mode currently supports Storybook on macOS; do not silently substitute it for another chosen template.
 
 For other templates or a portable media delivery, use the clean render and editing pack workflow in the same reference. Complex motion remains baked into those clips. The separate `jianying.py` adapter wraps baked clips and is not the editable Storybook exporter.
 
