@@ -1,10 +1,16 @@
-# screenshot-motion-skill
+# screenshot-motion-skill — Screenshots to product demo videos
 
 **English** | [简体中文](README.zh-CN.md)
 
-**Your screenshots. A product video. Ready for your next launch.**
+**Give your AI coding agent screenshots. Get a product video for your next launch.**
 
-An agent skill that turns screenshots into motion, writes the captions, and delivers an MP4. All seven effects also have experimental native editable CapCut previews with separate screenshot and text layers, plus a portable installer for macOS and Windows. Windows client acceptance is pending.
+`screenshot-motion-skill` is an open-source agent skill for Codex, Claude Code, and other local AI coding assistants. Turn app, website, or SaaS screenshots into animated product demo videos, write captions, and render a 1080p MP4 locally with Remotion.
+
+- **Seven motion templates:** spotlight cards, dark launch films, page-turn storybooks, orbital galleries, kinetic graphics, prismatic folds, and floating page stacks.
+- **Revise in conversation:** change headlines, captions, and effects, then render again.
+- **Keep editing:** receive the Remotion source project, with optional desktop editing packs and experimental native CapCut / Jianying preview drafts.
+
+[Quick start](#how-to-use) · [Outputs](#what-you-get) · [Requirements](#requirements) · [FAQ](#faq)
 
 ## Effects
 
@@ -19,33 +25,6 @@ An agent skill that turns screenshots into motion, writes the captions, and deli
 | ![Flipstack](docs/previews/flipstack.gif) | |
 
 <sub>Small, accelerated, silent previews. Final videos: 1080p · 30 fps.</sub>
-
-## Keep creating in CapCut: replace screenshots and edit page text
-
-**All seven effects can generate native editable CapCut preview drafts.** The screenshot below shows the previously verified Storybook preview on macOS. Continue working in the desktop editor after generation: replace product screenshots, revise page copy, and refine the edit.
-
-![Storybook native draft in CapCut for macOS, showing the book preview and separate text tracks](docs/previews/capcut-storybook-editable.jpg)
-
-<sub>Actual CapCut macOS 9.7.1 capture. The book preview, independent text tracks and native Text panel are visible; screenshot images, paper and background also have their own layers.</sub>
-
-- **Replace screenshots:** each screenshot is an image segment. Use the editor’s replacement workflow and retain effects/keyframes; check the image fit and page turn afterward.
-- **Edit page copy:** cover titles, body copy, chapter labels and page numbers are native text segments available in the text panel.
-- **Keep the book layout:** covers, facing pages, colors and decorations follow the template layout, with synchronized keyframes for page changes.
-
-This optional output is a local draft folder with its media. Generation uses an isolated Python environment with pyJianYingDraft 0.2.7 and Pillow; Storybook also needs Arial (macOS, Windows, or `SCREENSHOT_MOTION_FONT_DIR`). The portable acceptance pack includes every generated effect, matching reference MP4s and a standard-library Python installer that rebuilds paths on the destination machine. CapCut requires a new empty project from that installed build. [Windows/macOS installation and acceptance →](references/windows-acceptance.md)
-
-Ask your agent:
-
-```text
-Make a video with the selected effect and export a native editable CapCut preview draft.
-Include a portable pack for macOS and Windows, with the matching reference MP4.
-I want to replace screenshots and edit cover and page text in CapCut,
-while preserving as much of the original layout and effect as possible.
-```
-
-The MP4 example below requests a video only. To receive the native draft as well, explicitly request it as above.
-
-**Current scope:** draft generation covers all seven effects; destination installation handles macOS/Windows paths and readable legacy/modern draft schemas. The six newer native recipes are experimental 2D approximations, particularly simplified for Flipstack. Native perspective, mesh bending, lighting, crops and typography can differ from the original render. Only the earlier Storybook preview has client evidence: opening, cover/inner layout and text panel in CapCut macOS 9.7.1. The new all-effects bundle has not passed client acceptance; this Mac's window-control errors blocked further GUI checks, and Windows has no test machine yet. Replacement, text-edit/save/reopen and final native export remain pending. [Editing and compatibility →](references/editor-export.md)
 
 ## How to use
 
@@ -87,6 +66,39 @@ Your agent writes the copy, creates the animation, checks the result, and delive
 
 - **Optional native preview drafts for all seven effects in CapCut** with replaceable screenshots, separate text layers and 2D keyframes, plus matching full-effect reference videos. See the showcase above for compatibility and validation scope.
 
+## Requirements
+
+Use a local AI coding agent with file and command access, plus **Python 3.9+, Node.js 22+, npm, Chrome / Chromium, and FFmpeg**. The agent checks the environment and runs the render; the first run requires dependency installation. See [rendering setup](references/development.md).
+
+Native preview drafts need optional Python dependencies and the target desktop editor. macOS / Windows installer support does not mean every editor version has passed acceptance testing; see the compatibility notes below.
+
+## Keep creating in CapCut: replace screenshots and edit page text
+
+**All seven effects can generate native editable CapCut preview drafts.** The screenshot below shows the previously verified Storybook preview on macOS. Continue working in the desktop editor after generation: replace product screenshots, revise page copy, and refine the edit.
+
+![Storybook native draft in CapCut for macOS, showing the book preview and separate text tracks](docs/previews/capcut-storybook-editable.jpg)
+
+<sub>Actual CapCut macOS 9.7.1 capture. The book preview, independent text tracks and native Text panel are visible; screenshot images, paper and background also have their own layers.</sub>
+
+- **Replace screenshots:** each screenshot is an image segment. Use the editor’s replacement workflow and retain effects/keyframes; check the image fit and page turn afterward.
+- **Edit page copy:** cover titles, body copy, chapter labels and page numbers are native text segments available in the text panel.
+- **Keep the book layout:** covers, facing pages, colors and decorations follow the template layout, with synchronized keyframes for page changes.
+
+This optional output is a local draft folder with its media. Generation uses an isolated Python environment with pyJianYingDraft 0.2.7 and Pillow; Storybook also needs Arial (macOS, Windows, or `SCREENSHOT_MOTION_FONT_DIR`). The portable acceptance pack includes every generated effect, matching reference MP4s and a standard-library Python installer that rebuilds paths on the destination machine. CapCut requires a new empty project from that installed build. [Windows/macOS installation and acceptance →](references/windows-acceptance.md)
+
+Ask your agent:
+
+```text
+Make a video with the selected effect and export a native editable CapCut preview draft.
+Include a portable pack for macOS and Windows, with the matching reference MP4.
+I want to replace screenshots and edit cover and page text in CapCut,
+while preserving as much of the original layout and effect as possible.
+```
+
+The MP4 example below requests a video only. To receive the native draft as well, explicitly request it as above.
+
+**Current scope:** draft generation covers all seven effects; destination installation handles macOS/Windows paths and readable legacy/modern draft schemas. The six newer native recipes are experimental 2D approximations, particularly simplified for Flipstack. Native perspective, mesh bending, lighting, crops and typography can differ from the original render. Only the earlier Storybook preview has client evidence: opening, cover/inner layout and text panel in CapCut macOS 9.7.1. The new all-effects bundle has not passed client acceptance; this Mac's window-control errors blocked further GUI checks, and Windows has no test machine yet. Replacement, text-edit/save/reopen and final native export remain pending. [Editing and compatibility →](references/editor-export.md)
+
 ## Good to know
 
 - Output is **1080p, 30 fps, landscape**. Spotlight: 12s · Launch: 20s · Orbit: 18s · Kinetic: 16s · Prism: 18s · Flipstack: 20s · Storybook: 32s for five pages, with adjustable holds.
@@ -94,8 +106,32 @@ Your agent writes the copy, creates the animation, checks the result, and delive
 - Audio is not bundled; provide files you have permission to use. The agent checks the required local rendering tools. [Setup details →](references/development.md)
 - Original code is MIT licensed; Remotion and media have separate terms. [License details →](THIRD_PARTY_NOTICES.md)
 
+## FAQ
+
+### Is this a web app?
+
+This is a skill installed in a local AI coding agent. Attach screenshots and describe your video in chat; the agent runs local scripts to produce it. It is not a hosted online video editor.
+
+### Do I need a separate video-generation API key?
+
+Template videos render locally with Remotion, without a video-generation service API key. Your AI coding agent still needs its own account or model configuration, and that service may charge for usage.
+
+### Is it free to use for commercial projects?
+
+Original repository code is MIT licensed. Remotion, your AI agent, and any images, fonts, or audio have their own terms. Check the [third-party license notes](THIRD_PARTY_NOTICES.md) for commercial use.
+
+### Can I edit text inside a screenshot?
+
+You can revise separate video headlines and captions. Text baked into a screenshot requires an updated image. Native draft screenshot replacement, text editing, and save/export support depend on the [editor compatibility scope](references/editor-export.md).
+
+### Can I add background music?
+
+Yes. Supply audio you have permission to use and ask the agent to include it. Music is not bundled with the skill.
+
 ## More effects, same skill
 
 The template library can grow without replacing existing effects. [Contribute an effect →](references/extending.md)
 
 Only lightweight GIF previews and the CapCut/Jianying UI showcase captures ship with the skill. Full demo videos, original screenshots, runtime dependencies, and generated editing packs stay outside the installation. [Preview details →](docs/previews/README.md)
+
+If this skill helps with your next launch, **star the repository** to find it again. For problems, [open an issue](https://github.com/simwy/screenshot-motion-skill/issues) with your agent, OS, template name, and error details. Leave out credentials and private media.
