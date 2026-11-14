@@ -15,6 +15,8 @@
 | ![Storybook](docs/previews/storybook.gif) | ![Orbit](docs/previews/orbit.gif) |
 | **Kinetic · 动态图形** | **Prism · 棱镜折叠** |
 | ![Kinetic](docs/previews/kinetic.gif) | ![Prism](docs/previews/prism.gif) |
+| **Flipstack · 卡片翻叠** | |
+| ![Flipstack](docs/previews/flipstack.gif) | |
 
 <sub>以上为缩小、加速的静音预览。最终视频：1080p · 30 fps。</sub>
 
@@ -67,7 +69,7 @@ App 名称：诗柚古文
 截图顺序：请按附件上传顺序展示。
 ```
 
-将 `orbit` 替换为你喜欢的效果：**`spotlight` · `launch` · `storybook` · `orbit` · `kinetic` · `prism`**。
+将 `orbit` 替换为你喜欢的效果：**`spotlight` · `launch` · `storybook` · `orbit` · `kinetic` · `prism` · `flipstack`**。
 
 指令可以用中文；如果希望视频使用中文文案，将“文案语言”改成“中文”即可。
 
@@ -83,7 +85,7 @@ AI 会撰写文案、制作动画、检查结果并交付视频。随后你可�
 
 ## 使用须知
 
-- 默认输出为 **1080p、30 fps、横屏**。Spotlight：12 秒；Launch：20 秒；Orbit：18 秒；Kinetic：16 秒；Prism：18 秒；Storybook：5 页时为 32 秒，可调整停留时长。
+- 默认输出为 **1080p、30 fps、横屏**。Spotlight：12 秒；Launch：20 秒；Orbit：18 秒；Kinetic：16 秒；Prism：18 秒；Flipstack：20 秒；Storybook：5 页时为 32 秒，可调整停留时长。
 - 请使用清晰的截图和简短文案。若要修改截图内部的文字，需要提供更新后的图片。
 - 技能不附带音频；请提供你有权使用的文件。AI 会检查本地渲染所需工具。[环境配置说明（英文）→](references/development.md)
 - 原创代码采用 MIT 许可证；Remotion 和媒体素材适用各自的条款。[许可证详情（英文）→](THIRD_PARTY_NOTICES.md)

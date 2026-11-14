@@ -1,4 +1,4 @@
 interface:
   display_name: "Screenshot Motion"
-  short_description: "Create six video styles and desktop editing packs"
-  default_prompt: "Use $screenshot-motion-skill to turn my product screenshots into a video using the spotlight, launch, orbit, kinetic, prism, or storybook template."
+  short_description: "Create seven video styles and desktop editing packs"
+  default_prompt: "Use $screenshot-motion-skill to turn my product screenshots into a video using the spotlight, launch, orbit, kinetic, prism, flipstack, or storybook template."

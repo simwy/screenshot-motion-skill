@@ -15,6 +15,8 @@ def scenes(d):
     if name == 'launch':
         return [(0, 90, 'Opening', None), (90, 195, 'Feature', 0), (195, 300, 'Feature', 1),
                 (300, 405, 'Feature', 2), (405, 480, 'Feature', 3), (480, total, 'Closing', None)]
+    if name == 'flipstack':
+        return [(0, 60, 'Opening', None)] + [(60+i*90, 150+i*90, 'Feature', i) for i in range(5)] + [(510, total, 'Closing', None)]
     if name == 'kinetic':
         return [(0, 60, 'Opening', None), (60, 135, 'Feature', 0), (135, 210, 'Feature', 1),
                 (210, 285, 'Feature', 2), (285, 360, 'Feature', 3), (360, total, 'Closing', None)]
@@ -46,6 +48,8 @@ def captions(d):
             if kind == 'Opening': end = 45
             elif kind == 'Closing': start += 42
             else: end = start+d['holdFrames']
+        if d.get('template') == 'flipstack' and kind == 'Feature':
+            start += 24 if i else 0
         result.append({'startFrame':start, 'endFrame':end, 'title':'\n'.join(title), 'body':body})
     return result
 

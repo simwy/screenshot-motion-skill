@@ -1,6 +1,6 @@
 # Third-party notices
 
-The original skill instructions, helper scripts and six video renderers are licensed under the accompanying MIT license.
+The original skill instructions, helper scripts and video renderers are licensed under the accompanying MIT license.
 
 Runtime dependencies are installed into generated jobs, not vendored into this skill. Remotion is governed by its own license and commercial-use terms; the package's MIT license does not relicense it. Check the current [Remotion license and terms](https://www.remotion.dev/docs/license) before commercial use or operating a video-generation SaaS. React, TypeScript and their type packages retain their upstream licenses, available in the installed packages.
 

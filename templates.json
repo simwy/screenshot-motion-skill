@@ -94,5 +94,22 @@
       380
     ],
     "description": "Hinged accordion screens, layered glass reveals and prismatic light sweeps."
+  },
+  "flipstack": {
+    "composition": "FloatingFlipstack",
+    "component": "Flipstack",
+    "module": "Flipstack",
+    "minPages": 5,
+    "maxPages": 5,
+    "timing": "fixed",
+    "frames": 600,
+    "cues": [
+      18,
+      164,
+      254,
+      344,
+      434
+    ],
+    "description": "Shared-spine multi-leaf riffle with a continuous camera push and front-facing page reveal."
   }
 }

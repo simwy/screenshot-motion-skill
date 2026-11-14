@@ -46,6 +46,10 @@ Five screenshots unfold like an accordion, then layered glass panels reveal thre
 
 Both effects support clean rendering and the same desktop editing pack as the other templates. Their animation remains baked into video clips; imported captions are separate editor text.
 
+## Flipstack — 20 seconds
+
+Multiple curved leaves riffle around one shared right spine. Leaves turn from left to right without mirroring the screenshot pixels. White floor grid lines recede toward the horizon throughout the video. The whole book follows one continuous cubic approach curve while growing and rotating. Later chapter turns use a smooth excursion from and back to the same front-facing pose, avoiding camera resets. Both white grid planes extend inward and move faster toward the horizon. Five 90-frame feature chapters follow a 60-frame opening; the final 90 frames hold the closing message. Each new chapter starts with the same overlapping multi-leaf motion, not independent card rotation. Portrait screenshots sit alongside their explanatory copy on a landscape paper sheet. Copy remains removable in clean mode. Use exactly five images and `audio.transition` for paper foley. Example: `examples/flipstack.json`.
+
 ## Media previews
 
 The README embeds small, silent GIF previews under `docs/previews/`; they are not renderer dependencies. Keep full-resolution videos outside the installable skill folder. When published showcase URLs exist, link them from the README. Do not invent public URLs for local-only videos. See [preview maintenance](../docs/previews/README.md).

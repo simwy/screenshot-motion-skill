@@ -1,11 +1,11 @@
 ---
 name: screenshot-motion-skill
-description: Create product videos from screenshots using card spotlight, dark launch-film, orbital gallery, kinetic graphics, prismatic folds, or page-turn storybook templates, with editable copy, optional licensed audio, portable desktop editing packs, and native editable Storybook drafts for Jianying on macOS. Use for screenshot promos, app launch videos, flipbooks, or extending this template library.
+description: Create product videos from screenshots using card spotlight, dark launch-film, orbital gallery, kinetic graphics, prismatic folds, floating page stacks, or page-turn storybook templates, with editable copy, optional licensed audio, portable desktop editing packs, and native editable Storybook drafts for Jianying on macOS. Use for screenshot promos, app launch videos, flipbooks, or extending this template library.
 ---
 
 # Screenshot Motion Skill
 
-Produce a real, editable video with one of six implemented templates:
+Produce a real, editable video with one of seven implemented templates:
 
 | Template | Effect | Screenshots | Duration |
 | --- | --- | --- | --- |
@@ -14,6 +14,7 @@ Produce a real, editable video with one of six implemented templates:
 | `prism` | Accordion screens, layered glass reveals and light sweeps | Exactly 5 | 18 seconds |
 | `orbit` | Neon orbital gallery, depth rotation and final lineup | Exactly 5 | 18 seconds |
 | `launch` | Dark editorial promo with collage, feature close-ups, large headlines and CTA | Exactly 5 | 20 seconds |
+| `flipstack` | Shared-spine multi-page riffle, camera push and front-facing page reveals | Exactly 5 | 20 seconds |
 | `storybook` | Hardcover opens, illustrated spreads turn, cover closes | 1–12 | Configurable holds; 5 pages default to 32 seconds |
 
 Read [template selection and mapping](references/templates.md) before arranging screenshots. Follow an explicitly selected effect. Otherwise recommend/select the closest match from the user's intent, preserving previous choices; do not default all requests to a book. The authoritative template registry is `templates.json`. This is an extensible library, not bundled finished demo videos.
@@ -32,7 +33,7 @@ Accept revision requests in natural language, update the generated project, and 
 
 ## Create the video
 
-1. Read [the configuration reference](references/configuration.md). Write a project JSON beside the user's assets, using the matching example in `examples/` as a starting point. Write short, concrete explanations, one feature per screenshot. Select `--template spotlight`, `--template launch`, `--template orbit`, `--template kinetic`, `--template prism`, or `--template storybook`; the command below illustrates storybook. Respect the validated line limits.
+1. Read [the configuration reference](references/configuration.md). Write a project JSON beside the user's assets, using the matching example in `examples/` as a starting point. Write short, concrete explanations, one feature per screenshot. Select `--template spotlight`, `--template launch`, `--template orbit`, `--template kinetic`, `--template prism`, `--template flipstack`, or `--template storybook`; the command below illustrates storybook. Respect the validated line limits.
 2. Prepare an isolated job:
    ```sh
    python3 /path/to/screenshot-motion-skill/scripts/motion.py prepare --template storybook --config /path/to/project.json --out /path/to/new-job
@@ -43,7 +44,7 @@ Accept revision requests in natural language, update the generated project, and 
    ```sh
    python3 /path/to/screenshot-motion-skill/scripts/motion.py render --job /path/to/new-job --frame 150 --browser /path/to/chrome
    ```
-   Inspect the resulting PNG. Correct copy, clipping or layout before a full render. Useful preview frames: spotlight 105/190/330; launch 60/150/250/355/450/550; orbit 45/170/270/380/490; kinetic 35/100/170/245/320/430; prism 70/150/240/330/470; storybook 150 and `90 + holdFrames + 21` for the first turn midpoint. Choose frames within the job duration.
+   Inspect the resulting PNG. Correct copy, clipping or layout before a full render. Useful preview frames: spotlight 105/190/330; launch 60/150/250/355/450/550; orbit 45/170/270/380/490; kinetic 35/100/170/245/320/430; prism 70/150/240/330/470; flipstack 24/100/164/200/550; storybook 150 and `90 + holdFrames + 21` for the first turn midpoint. Choose frames within the job duration.
 5. Render without `--frame`. This creates `out/video-silent.mp4`. Supply an existing browser explicitly if auto-discovery fails; the script does not download a browser.
 6. Run `motion.py mix --job /path/to/new-job` to create `out/video.mp4`. Without audio inputs it makes a silent copy. For music, transition sounds or paper sounds, read [audio and licensing](references/audio-and-licensing.md). Do not add narration unless requested and a suitable authorized voice service is available.
 7. Follow [the output checks](references/quality.md), inspect the rendered file rather than only source code, then return the actual video and job path. Be precise about whether narration, listening, or real-time playback was performed. If rendering is blocked, report the specific missing dependency; do not substitute a still image and call it a video.

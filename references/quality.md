@@ -18,3 +18,11 @@ ffmpeg -i /path/to/job/out/video.mp4 -vn -af ebur128=peak=true -f null -
 A still-only smoke test verifies loading/layout, not all-frame correctness. After changes to geometry or timing, perform at least one full small-project render. Maintain a safe copy of a user's previous final before replacing it. Keep QA images and temporary renders in the job, not in the skill's distributable package.
 
 For editor exports, inspect clean plates for leftover promotional copy, verify each clip frame count and contiguous timeline coverage, parse the SRT files, and check independent audio duration. Test native draft references and text/audio tracks, but distinguish JSON readback from actual GUI import.
+
+For flipstack, inspect frames 15/24 (shared-spine riffle), 59/60 (first reveal), 150/164/178 (front, edge and reverse), 200 (settled chapter), 509/510 (closing edit), and 550 (closing hold). Check that all leaf origins share the same spine and paper backs stay blank, screenshot letters have no mesh seams, and clean rendering removes all promotional copy.
+
+For flipstack direction revisions, verify left-to-right leaf motion about the right spine without mirroring UI text. Compare consecutive settled-page frames: the white floor grid must recede toward the horizon while the book has only a stable readable pose after the main sweeping move.
+
+For whole-book movement, compare frames 0/10/20/30/44: the shared spine translates along a leftward arc and returns to the final front-facing composition. Check all page corners during the large-scale intermediate turns.
+
+Check chapter boundaries 149/150 and 239/240 for pose continuity. Camera motion must not shrink or jump back to its opening pose, and intermediate approach points must not ease to a stop.

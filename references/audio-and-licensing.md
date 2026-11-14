@@ -12,4 +12,4 @@ Mix after the picture timing is stable. Check gain in context; low-level recordi
 
 If delivering both music and SFX-only variants, save the full mix first, temporarily remove `music` from the job manifest, mix again and save the SFX-only version, then restore the manifest. Do not overwrite the only copy of a requested variant. No external service or paid generation is required for local rendering.
 
-Use `audio.pageTurn` for storybook, and `audio.transition` for spotlight/launch/orbit/kinetic/prism. Both have the same fields as the documented audio example. Unsupported audio keys are rejected so a requested track is not silently omitted. Choose material-appropriate effects; paper foley does not belong on every card zoom.
+Use `audio.pageTurn` for storybook, and `audio.transition` for spotlight/launch/orbit/kinetic/prism/flipstack. Both have the same fields as the documented audio example. Unsupported audio keys are rejected so a requested track is not silently omitted. Choose material-appropriate effects; paper foley does not belong on every card zoom.

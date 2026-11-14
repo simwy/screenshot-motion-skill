@@ -15,6 +15,8 @@ An agent skill that turns screenshots into motion, writes the captions, and deli
 | ![Storybook](docs/previews/storybook.gif) | ![Orbit](docs/previews/orbit.gif) |
 | **Kinetic** | **Prism** |
 | ![Kinetic](docs/previews/kinetic.gif) | ![Prism](docs/previews/prism.gif) |
+| **Flipstack** | |
+| ![Flipstack](docs/previews/flipstack.gif) | |
 
 <sub>Small, accelerated, silent previews. Final videos: 1080p · 30 fps.</sub>
 
@@ -68,7 +70,7 @@ Output: Export the MP4.
 Screenshot order: Use the attachment order.
 ```
 
-Replace `orbit` with any effect above: **`spotlight` · `launch` · `storybook` · `orbit` · `kinetic` · `prism`**.
+Replace `orbit` with any effect above: **`spotlight` · `launch` · `storybook` · `orbit` · `kinetic` · `prism` · `flipstack`**.
 
 Your agent writes the copy, creates the animation, checks the result, and delivers the video. You can then say “Change the headline” or “Also export an editing pack for Jianying or CapCut.”
 
@@ -82,7 +84,7 @@ Your agent writes the copy, creates the animation, checks the result, and delive
 
 ## Good to know
 
-- Output is **1080p, 30 fps, landscape**. Spotlight: 12s · Launch: 20s · Orbit: 18s · Kinetic: 16s · Prism: 18s · Storybook: 32s for five pages, with adjustable holds.
+- Output is **1080p, 30 fps, landscape**. Spotlight: 12s · Launch: 20s · Orbit: 18s · Kinetic: 16s · Prism: 18s · Flipstack: 20s · Storybook: 32s for five pages, with adjustable holds.
 - Use clear screenshots and short captions. Changing text inside a screenshot requires an updated image.
 - Audio is not bundled; provide files you have permission to use. The agent checks the required local rendering tools. [Setup details →](references/development.md)
 - Original code is MIT licensed; Remotion and media have separate terms. [License details →](THIRD_PARTY_NOTICES.md)

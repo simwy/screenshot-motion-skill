@@ -1,6 +1,6 @@
 # Project configuration
 
-The input is a UTF-8 JSON object. Choose a `template` value: `spotlight`, `launch`, `orbit`, `kinetic`, `prism`, or `storybook`; `prepare --template` overrides this field. Missing selection defaults to storybook for backward compatibility. Image and audio paths resolve relative to the configuration file; absolute local paths also work. Remote URLs are not fetched. Prepared jobs contain local asset copies.
+The input is a UTF-8 JSON object. Choose a `template` value: `spotlight`, `launch`, `orbit`, `kinetic`, `prism`, `flipstack`, or `storybook`; `prepare --template` overrides this field. Missing selection defaults to storybook for backward compatibility. Image and audio paths resolve relative to the configuration file; absolute local paths also work. Remote URLs are not fetched. Prepared jobs contain local asset copies.
 
 | Field | Required | Constraints |
 | --- | --- | --- |
@@ -10,8 +10,8 @@ The input is a UTF-8 JSON object. Choose a `template` value: `spotlight`, `launc
 | `coverTitle`, `closingTitle` | Yes | 1–3 lines; maximum 20 characters per line |
 | `cta` | Yes | Maximum 28 characters; use a truthful action |
 | `holdSeconds` | No | Storybook only: 3–12 seconds, default 4; rounded to a whole frame |
-| `pages` | Yes | Exactly 5 for spotlight/launch/orbit/kinetic/prism; 1–12 for storybook |
-| `audio` | No | Optional `music` and `pageTurn` (storybook) or `transition` (spotlight/launch/orbit/kinetic/prism) objects |
+| `pages` | Yes | Exactly 5 for spotlight/launch/orbit/kinetic/prism/flipstack; 1–12 for storybook |
+| `audio` | No | Optional `music` and `pageTurn` (storybook) or `transition` (spotlight/launch/orbit/kinetic/prism/flipstack) objects |
 
 Each page needs `image` (PNG/JPEG/WebP), `tag` (32 characters), `key` (36), `detail` (40), `title` (1–3 lines, 22 characters each), and `body` (1–3 lines, 44 characters each). Limits are maxima, not writing targets. Favor fewer words and inspect the final layout. Storybook headings shrink to the page width; spotlight, launch, orbit, kinetic and prism use fixed typography, so inspect line breaks and keep copy concise. English is the tested typography; other scripts require suitable installed fonts and a fresh visual check.
 
@@ -52,7 +52,7 @@ Only the 16:9 composition is implemented. Vertical/social variants require adapt
 
 ## Launch regions and fixed timelines
 
-`launch`, `spotlight`, `orbit`, `kinetic` and `prism` last 600, 360, 540, 480 and 540 frames respectively; `holdSeconds` does not alter them. Their audio cue frames come from `templates.json` and are copied into the job's `templateSpec`. The generated composition and mixer use the same selected specification.
+`launch`, `spotlight`, `orbit`, `kinetic`, `prism` and `flipstack` last 600, 360, 540, 480, 540 and 600 frames respectively; `holdSeconds` does not alter them. Their audio cue frames come from `templates.json` and are copied into the job's `templateSpec`. The generated composition and mixer use the same selected specification.
 
 A launch page can include `region: [x, y, width, height]` using fractions of the source image. For example `[0, 0, 1, 0.45]` focuses on the top 45%. The region must fit inside the image and have positive width/height. Unspecified regions show the full image. Region framing preserves aspect ratio and is used in feature close-ups; collage/closing phones always show the full screenshot. Regions are ignored by the other templates.
 

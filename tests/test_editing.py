@@ -22,7 +22,7 @@ def project(name, count=5, hold=120):
 
 class EditingTests(unittest.TestCase):
     def test_fixed_shots_cover_every_frame_without_overlap(self):
-        for name,total in [('spotlight',360),('launch',600),('orbit',540),('kinetic',480),('prism',540)]:
+        for name,total in [('spotlight',360),('launch',600),('orbit',540),('kinetic',480),('prism',540),('flipstack',600)]:
             d=project(name); cuts=scenes(d)
             self.assertEqual(cuts[0][0],0)
             self.assertEqual(cuts[-1][1],total)
@@ -46,6 +46,14 @@ class EditingTests(unittest.TestCase):
         d=project('orbit')
         for i,p in enumerate(d['pages']):p['title']=[f'Page {i}']
         self.assertEqual([c['title'] for c in captions(d)[1:-1]],['Page 1','Page 2','Page 3'])
+
+    def test_flipstack_captions_follow_all_five_pages_after_turns(self):
+        d=project('flipstack')
+        for i,p in enumerate(d['pages']):p['title']=[f'Page {i}']
+        caps=captions(d)[1:-1]
+        self.assertEqual([c['title'] for c in caps],[f'Page {i}' for i in range(5)])
+        self.assertEqual([c['startFrame'] for c in caps],[60,174,264,354,444])
+        self.assertEqual([c['endFrame'] for c in caps],[150,240,330,420,510])
 
     def test_srt_rounding_and_hour_rollover(self):
         self.assertEqual(timestamp(1),'00:00:00,033')
