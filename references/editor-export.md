@@ -54,7 +54,7 @@ Never overwrite an existing draft. Adding a uniquely named draft to the local li
 
 ## Deliverables and boundaries
 
-The normal delivery is an MP4 and an editable source project. When the user requests desktop editing, also export a portable editing pack. Do not present a single flattened MP4 as an editable project.
+The default delivery is an MP4, an editable Remotion source project, and a portable native Jianying preview draft with an installer and import instructions. Honor explicit video-only requests or a different target editor. The clean-video editing pack below is an optional fidelity-oriented alternative, not a substitute for the default native draft. Do not present a single flattened MP4 as an editable project.
 
 | Item | Editable in the desktop editor |
 | --- | --- |
