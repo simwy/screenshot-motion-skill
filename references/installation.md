@@ -4,6 +4,24 @@ Repository: https://github.com/simwy/screenshot-motion-skill
 
 Install the entire repository, including `assets/`, `scripts/`, `references/`, and `templates.json`. Copying only `SKILL.md` will not provide the renderers. The published repository must have `SKILL.md` at its root, not inside a second `screenshot-motion-skill/` folder.
 
+## skills CLI
+
+From your project terminal, run:
+
+```sh
+npx skills add simwy/screenshot-motion-skill
+```
+
+Follow the prompts to select your agent and installation scope. To inspect the publicly available skill without installing it:
+
+```sh
+npx skills add simwy/screenshot-motion-skill --list
+```
+
+The CLI must copy the supporting files as well as `SKILL.md`; use the verification checklist below. Rendering dependencies are installed separately.
+
+[CLI documentation](https://skills.sh/docs/cli). The skills.sh leaderboard uses CLI installation telemetry; a working installation command does not guarantee a listing or ranking.
+
 ## Codex
 
 Paste the README's `$skill-installer` instruction into Codex chat. Codex's installer can download a skill from another GitHub repository. For this root-level repository, its helper uses the repository root as the skill path and `screenshot-motion-skill` as the installed directory name. Let the installed helper choose its configured user skill location.
