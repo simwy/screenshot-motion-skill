@@ -38,26 +38,13 @@
 
 ## 使用方法
 
-### 使用 skills CLI 安装
-
-在项目终端运行以下命令，按提示选择使用的 AI 助手：
+**1. 安装技能。** 在项目终端运行以下命令，按提示选择使用的 AI 助手：
 
 ```sh
 npx skills add simwy/screenshot-motion-skill
 ```
 
-该命令安装技能及其配套文件；渲染环境仍需满足下方的[运行条件](#运行条件)。也可以按下面的方法直接在聊天中安装。
-
-**1. 安装技能。** 在你使用的工具中打开一个本地项目，将对应指令粘贴到它的**聊天输入框**中：
-
-| 工具 | 复制这段指令进行安装 |
-| --- | --- |
-| **Codex** | $skill-installer 将 https://github.com/simwy/screenshot-motion-skill 安装为 screenshot-motion-skill。 |
-| **Claude Code** | 将 https://github.com/simwy/screenshot-motion-skill 安装到当前项目的 .claude/skills/screenshot-motion-skill 目录。 |
-| **WorkBuddy** | 将 https://github.com/simwy/screenshot-motion-skill 安装到当前项目的 .codebuddy/skills/screenshot-motion-skill 目录。 |
-| **DeepSeek Harness** | 将 https://github.com/simwy/screenshot-motion-skill 安装到当前项目的 .dsh/skills/screenshot-motion-skill 目录。 |
-
-AI 确认安装完成后，在同一项目中新建任务。以上说明适用于能够访问本地文件和执行命令的 AI 工具；这里的“Claude”指 **Claude Code**。[安装帮助（英文）→](references/installation.md)
+安装完成后，在同一项目中新建任务。需要使用能够访问本地文件和执行命令的 AI 编程助手；渲染环境仍需满足下方的[运行条件](#运行条件)。
 
 **2. 添加截图附件。** 在聊天输入框中上传 **5 张截图**。Storybook 支持 1–12 张截图。**截图和下一步的文字可以放在同一条消息里一起发送。**
 

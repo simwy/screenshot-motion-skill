@@ -38,26 +38,13 @@ Choose `entrance` for an 8-second video using five screenshots: cards rise in a 
 
 ## How to use
 
-### Install with the skills CLI
-
-Run this in your project terminal and select your agent when prompted:
+**1. Install the Skill.** Run this in your project terminal and select your agent when prompted:
 
 ```sh
 npx skills add simwy/screenshot-motion-skill
 ```
 
-This installs the skill and its supporting files. Rendering dependencies are separate; see [Requirements](#requirements). Prefer installing through chat? Use the instructions below.
-
-**1. Install.** Open a local project in your app and paste the matching line into its **chat box**:
-
-| App | Paste this to install |
-| --- | --- |
-| **Codex** | $skill-installer Install https://github.com/simwy/screenshot-motion-skill as screenshot-motion-skill. |
-| **Claude Code** | Install https://github.com/simwy/screenshot-motion-skill into .claude/skills/screenshot-motion-skill in this project. |
-| **WorkBuddy** | Install https://github.com/simwy/screenshot-motion-skill into .codebuddy/skills/screenshot-motion-skill in this project. |
-| **DeepSeek Harness** | Install https://github.com/simwy/screenshot-motion-skill into .dsh/skills/screenshot-motion-skill in this project. |
-
-Once the agent confirms installation, start a new task in the same project. These instructions target local agents with file and command access; “Claude” here means **Claude Code**. [Help with installation →](references/installation.md)
+Once installation finishes, start a new task in the same project. Use a local AI coding agent with file and command access. Rendering dependencies are separate; see [Requirements](#requirements).
 
 **2. Attach your screenshots.** Attach **five screenshots** in the chat box. Storybook can use 1–12 screenshots instead. You can send the images and the text below **together in one message**.
 
