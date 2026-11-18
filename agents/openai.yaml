@@ -1,4 +1,4 @@
 interface:
   display_name: "Screenshot Motion"
-  short_description: "Create eight video styles and desktop editing packs"
+  short_description: "Create screenshot videos and Jianying draft packages"
   default_prompt: "Use $screenshot-motion-skill to turn my product screenshots into a video using the spotlight, launch, orbit, kinetic, prism, flipstack, entrance, or storybook template."

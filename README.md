@@ -8,7 +8,7 @@
 
 - **Eight motion templates:** spotlight cards, dark launch films, page-turn storybooks, orbital galleries, kinetic graphics, prismatic folds, floating page stacks, and gentle fan entrances.
 - **Revise in conversation:** change headlines, captions, and effects, then render again.
-- **Keep editing:** receive the Remotion source project, with an experimental native Jianying preview draft for the original seven effects; desktop editing packs and CapCut drafts are also available.
+- **Keep editing:** receive an MP4 and a native Jianying `.jypack` with media for the original seven effects.
 
 [Quick start](#how-to-use) · [Outputs](#what-you-get) · [Requirements](#requirements) · [FAQ](#faq)
 
@@ -32,7 +32,7 @@
 
 ### Eighth template: Entrance
 
-Choose `entrance` for an 8-second video using five screenshots: cards rise in a gentle fan, product copy fills the left side, feature descriptions light up on the right, then the cards spread out and the center card lifts beneath the closing title. Copy, labels and accent color are configurable. Supports 1080p MP4, Remotion source, clean plates and portable editing packs. Native Jianying/CapCut drafts are not yet supported for Entrance. [Example configuration](examples/entrance.json) · [Copy mapping](references/templates.md#entrance--8-seconds)
+Choose `entrance` for an 8-second video using five screenshots: cards rise in a gentle fan, product copy fills the left side, feature descriptions light up on the right, then the cards spread out and the center card lifts beneath the closing title. Copy, labels and accent color are configurable. Delivers a 1080p MP4. Native Jianying/CapCut drafts are not yet supported for Entrance. [Example configuration](examples/entrance.json) · [Copy mapping](references/templates.md#entrance--8-seconds)
 
 ## How to use
 
@@ -77,44 +77,36 @@ With the prompt above, your agent writes the copy, creates the animation, checks
 
 ## What you get
 
-- **A finished MP4** and the editable Remotion source project. The source project is for rerendering through the skill; it is not a CapCut draft.
-- **Optional music and sound effects** from audio you provide.
-- **An optional editing pack** with clean motion clips, editable SRT captions, separate audio tracks, and your screenshots.
+- **A finished MP4**, with optional music and effects from audio you provide.
+- **A Jianying `.jypack` with media**, containing replaceable screenshots and separate promotional text for the original seven templates. Entrance delivers MP4 only.
 
-- **Native preview drafts for the original seven effects in Jianying or CapCut** (Jianying by default) with replaceable screenshots, separate text layers and 2D keyframes, plus matching full-effect reference videos. See the showcase above for compatibility and validation scope.
+Rendering source, installation helpers and QA files stay internal; they are not extra deliverables.
 
 ## Requirements
 
 Use a local AI coding agent with file and command access, plus **Python 3.9+, Node.js 22+, npm, Chrome / Chromium, and FFmpeg**. The agent checks the environment and runs the render; the first run requires dependency installation. See [rendering setup](references/development.md).
 
-Native preview drafts need additional Python dependencies and the target desktop editor. macOS / Windows installer support does not mean every editor version has passed acceptance testing; see the compatibility notes below.
+Native draft generation needs pyJianYingDraft 0.2.7, Pillow and the Jianying desktop client. The client creates the `.jypack` using its backup-with-media command. The receiving editor must provide **Import Jianying Draft**.
 
-## Keep creating in CapCut: replace screenshots and edit page text
+## Import your Jianying draft
 
-**The original seven effects can generate native editable CapCut preview drafts.** The screenshot below shows the previously verified Storybook preview on macOS. Continue working in the desktop editor after generation: replace product screenshots, revise page copy, and refine the edit.
+1. Download the `.jypack`; **do not unzip it**.
+2. On Jianying’s home screen, choose **导入剪映草稿** (Import Jianying Draft).
+3. Select the file and open the imported draft to continue editing.
 
-![Storybook native draft in CapCut for macOS, showing the book preview and separate text tracks](docs/previews/capcut-storybook-editable.jpg)
+The agent generates the package through **备份至本地 → 备份草稿及素材** in the desktop client. Media travels with the draft, and the recipient does not run installation scripts. Use a macOS or Windows Jianying version with this import feature.
 
-<sub>Actual CapCut macOS 9.7.1 capture. The book preview, independent text tracks and native Text panel are visible; screenshot images, paper and background also have their own layers.</sub>
+Replace screenshots while retaining effects/keyframes, and edit promotional copy in the text tracks. Text inside a screenshot remains part of the image.
 
-- **Replace screenshots:** each screenshot is an image segment. Use the editor’s replacement workflow and retain effects/keyframes; check the image fit and page turn afterward.
-- **Edit page copy:** cover titles, body copy, chapter labels and page numbers are native text segments available in the text panel.
-- **Keep the book layout:** covers, facing pages, colors and decorations follow the template layout, with synchronized keyframes for page changes.
+Default delivery is **MP4 + `.jypack`**. Ask for “MP4 only” to skip the draft, or explicitly request CapCut for its separate workflow. [Developer export workflow →](references/jianying-jypack.md)
 
-This output is a local draft folder with its media. Generation uses an isolated Python environment with pyJianYingDraft 0.2.7 and Pillow; Storybook also needs Arial (macOS, Windows, or `SCREENSHOT_MOTION_FONT_DIR`). The portable acceptance pack includes every generated effect, matching reference MP4s and a standard-library Python installer that rebuilds paths on the destination machine. CapCut requires a new empty project from that installed build. [Windows/macOS installation and acceptance →](references/windows-acceptance.md)
+### CapCut option
 
-Ask your agent:
+CapCut uses its own draft workflow and a new empty project from the installed build; it does not use Jianying’s `.jypack` import.
 
-```text
-Make a video with the selected effect and export a native editable CapCut preview draft.
-Include a portable pack for macOS and Windows, with the matching reference MP4.
-I want to replace screenshots and edit cover and page text in CapCut,
-while preserving as much of the original layout and effect as possible.
-```
+![Storybook draft in CapCut for macOS](docs/previews/capcut-storybook-editable.jpg)
 
-No Output field is needed: by default, the skill delivers both the MP4 and a Jianying draft bundle, including an installer and import instructions. The draft has replaceable screenshots and separate editable promotional text. Delivery notes state actual validation and visual differences from the MP4. A Remotion source project is not an editor draft. If you only need the video, add “Export only the MP4.”
-
-**Current scope:** draft generation covers the original seven effects; destination installation handles macOS/Windows paths and readable legacy/modern draft schemas. The six newer native recipes are experimental 2D approximations, particularly simplified for Flipstack. Native perspective, mesh bending, lighting, crops and typography can differ from the original render. Only the earlier Storybook preview has client evidence: opening, cover/inner layout and text panel in CapCut macOS 9.7.1. The new all-effects bundle has not passed client acceptance; this Mac's window-control errors blocked further GUI checks, and Windows has no test machine yet. Replacement, text-edit/save/reopen and final native export remain pending. [Editing and compatibility →](references/editor-export.md)
+[CapCut setup and editing details →](references/editor-export.md)
 
 ## Good to know
 

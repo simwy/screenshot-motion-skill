@@ -188,15 +188,12 @@ def export(job, out):
                 dest=media/f'{role}.wav';shutil.copy2(path,dest);track='Audio '+role;s.add_track(draft.TrackType.audio,track);s.add_segment(draft.AudioSegment(str(dest),draft.trange(0,us(total))),track)
     s.save()
     meta_path=out/'draft_meta_info.json';meta=json.loads(meta_path.read_text(encoding='utf-8'));meta.update(draft_name=out.name,draft_fold_path=str(out),draft_root_path=str(out.parent),tm_duration=us(total));meta_path.write_text(json.dumps(meta))
-    (out/'EDITING.md').write_text(f'''# {name} native 2D preview
-Screenshots and text are independent native segments. Keep keyframes when replacing images.
-This is a 2D reconstruction, not a pixel-identical render: perspective, mesh bending,
-blur, lighting, typography, crop regions and some decorative details differ.
-Orbit uses short native image segments to preserve depth ordering; replace every
-occurrence of an image, or regenerate through the skill for a consistent replacement.
-Use the accompanying rendered reference to compare the original effect.
-Client compatibility requires testing in the actual installed build.
-''')
+    (out/'EDITING.md').write_text(f'''# {name} 剪映草稿
+截图和宣传文案为独立片段，可在时间线上替换截图、修改文字。
+替换截图时请保留“复用原视频效果”。
+Orbit 中同一截图可能对应多个片段，请一并替换，或通过 skill 更新。
+修改完成后保存草稿，或在剪映中导出视频。
+''', encoding='utf-8')
     print(out)
 
 

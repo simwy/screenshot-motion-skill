@@ -4,7 +4,6 @@
 No renderer or editor dependencies; Python 3.9+. Never overwrites an output.
 """
 import argparse
-import csv
 import hashlib
 import json
 import shutil
@@ -52,15 +51,8 @@ def bundle(drafts, jobs, out):
         here = Path(__file__).parent
         for file in ('install_editor_draft.py', 'install_editor_bundle.py'):
             shutil.copy2(here/file, out/file)
-        shutil.copy2(here.parent/'references/windows-acceptance.md', out/'START-HERE.md')
-        with (out/'acceptance.csv').open('w', newline='', encoding='utf-8-sig') as f:
-            writer = csv.writer(f)
-            writer.writerow(['effect','os','editor','version','open','preview','replace_image','edit_text','save_reopen','export_mp4','notes'])
-            for name in names:
-                for os in ('macOS','Windows'):
-                    for editor in ('jianying','capcut'):
-                        writer.writerow([name,os,editor,'']+['pending']*6+['This exact bundle has not passed client acceptance'])
-        manifest = {'effects':names,'nativeMode':'editable 2D approximation','referenceMode':'original rendered effect; baked pixels','clientAcceptance':'pending','files':{}}
+        (out/'START-HERE.md').write_text('# 剪映草稿\n\n草稿位于 drafts 目录，成片位于 references 目录。\n使用随附 install_editor_bundle.py 安装草稿后，从剪映首页打开。\n替换截图时保留“复用原视频效果”，文字可在时间线上编辑。\n', encoding='utf-8')
+        manifest = {'effects': names, 'files': {}}
         for path in sorted(out.rglob('*')):
             if path.is_file():
                 manifest['files'][path.relative_to(out).as_posix()] = hashlib.sha256(path.read_bytes()).hexdigest()

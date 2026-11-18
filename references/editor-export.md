@@ -1,3 +1,13 @@
+# Native import delivery
+
+For the app command “导入剪映草稿”, deliver a `.jypack` produced by Jianying’s **备份至本地 → 备份草稿及素材**. A folder containing JSON and media, or the installer bundle, is not this interchange format. Do not rename a ZIP or a JSON file to `.jypack`.
+
+Workflow: generate the native draft, install a uniquely named copy locally, open and inspect it in Jianying, then use the app’s backup command including media. Save to a new delivery path. Import that package through “导入剪映草稿” and check media, text and timeline before reporting successful import. Deliver only the final MP4 and `.jypack`; keep installation helpers, Remotion source and QA evidence internal. If client packaging cannot run, report the blocker rather than substitute an installer ZIP.
+
+See [the native package workflow and validation record](jianying-jypack.md) for exact UI steps, save-path handling and user-reported sample acceptance.
+
+---
+
 # Editing in Jianying or CapCut Desktop
 
 ## All seven effects and portable destination installation
@@ -54,7 +64,7 @@ Never overwrite an existing draft. Adding a uniquely named draft to the local li
 
 ## Deliverables and boundaries
 
-The default delivery is an MP4, an editable Remotion source project, and a portable native Jianying preview draft with an installer and import instructions. Honor explicit video-only requests or a different target editor. The clean-video editing pack below is an optional fidelity-oriented alternative, not a substitute for the default native draft. Do not present a single flattened MP4 as an editable project.
+Default delivery is the finished MP4 and native `.jypack` including media, using [the client export workflow](jianying-jypack.md). Remotion source and installer bundles remain internal. The following clean-video workflow is an explicitly requested alternative only.
 
 | Item | Editable in the desktop editor |
 | --- | --- |
@@ -102,7 +112,7 @@ The adapter uses `pyJianYingDraft==0.2.7` (Apache-2.0), installed into an isolat
 
 Generate on the destination machine: the draft contains absolute media paths, while the editing pack is portable. The adapter copies its media into the draft folder, never overwrites an existing folder, and does not install/register a draft in the application. If the folder moves, regenerate from the pack at the new location. Do not rename JSON files or overwrite encrypted app drafts as a compatibility workaround.
 
-A successful JSON export or library readback is **not** proof that a current editor opens it. Keep this feature labeled experimental until the exact target build is tested in the GUI. If incompatible, deliver the portable editing pack rather than promise automatic draft import.
+A successful JSON export or library readback is **not** proof that a current editor opens it. Record compatibility evidence internally. If incompatible, explain the concrete blocker; do not substitute an editing pack without the user choosing it.
 
 ## Entrance support
 

@@ -80,7 +80,6 @@ def install(source, template, out, editor):
             (out/'Timelines/project.json').write_text(json.dumps(project),encoding='utf-8')
             (out/'Timelines'/tid/filename).write_text(json.dumps(dst,ensure_ascii=False),encoding='utf-8')
         if (source/'EDITING.md').exists():shutil.copy2(source/'EDITING.md',out/'EDITING.md')
-        (out/'INSTALLATION.json').write_text(json.dumps({'editor':editor,'schema':filename,'platform':__import__('sys').platform,'verifiedInClient':False,'note':'Open and visually verify in this exact client build; successful packaging is not compatibility acceptance.'},indent=2),encoding='utf-8')
     except Exception:
         shutil.rmtree(out);raise
     return out
