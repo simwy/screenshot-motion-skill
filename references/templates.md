@@ -53,3 +53,11 @@ Multiple curved leaves riffle around one shared right spine. Leaves turn from le
 ## Media previews
 
 The README embeds small, silent GIF previews under `docs/previews/`; they are not renderer dependencies. Keep full-resolution videos outside the installable skill folder. When published showcase URLs exist, link them from the README. Do not invent public URLs for local-only videos. See [preview maintenance](../docs/previews/README.md).
+
+## Entrance — 8 seconds
+
+Exactly five screenshots, in entry and final left-to-right order; page 3 lifts at the end. Frames 7/20/33/46/59 start upward entries with small horizontal offsets and rotations. Side introductions fade in at frames 4–17 and out at 78–94. At frame 90 the fan widens; page 3 lifts at 132 and the closing copy fades in at 133–151. The shot ends at frame 240 (30 fps).
+
+`brand` and `tagline` fill the top corners. Left introduction: page 1 `tag`, `coverTitle`, page 1 `body`. Right introduction: page 2 `tag`, all five `key` and `detail` pairs, highlighted in entry order. Each card uses its page `key`; `closingTitle` and `cta` fill the final heading and subtitle. Page `title` is retained in the common schema but is not displayed. Prefer short keys (2–3 words) and details; the introduction only holds for about three seconds. Copy scales down for long values; inspect readability. Portrait images work best; all images fit without cropping or stretching.
+
+Use `examples/entrance.json`. Clean mode removes promotional copy and card numbering while preserving screenshots. Portable editing packs include the two introduction/closing caption intervals and all source copy; they do not reconstruct the original side-column typography. Native editor drafts are not implemented for this effect.

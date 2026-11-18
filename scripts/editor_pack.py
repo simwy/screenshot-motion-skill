@@ -10,6 +10,8 @@ from motion import duration, job_fingerprint, mix
 def scenes(d):
     total = duration(d)[1]
     name = d.get('template', 'storybook')
+    if name == 'entrance':
+        return [(0, 94, 'Opening', None), (94, 133, 'Fan', None), (133, total, 'Closing', None)]
     if name == 'spotlight':
         return [(0, 145, 'Opening', None), (145, 280, 'Feature', 2), (280, total, 'Closing', None)]
     if name == 'launch':
@@ -38,6 +40,12 @@ def scenes(d):
 
 
 def captions(d):
+    if d.get('template') == 'entrance':
+        return [
+            {'startFrame':4, 'endFrame':94, 'title':'\n'.join(d['coverTitle']),
+             'body':' '.join(d['pages'][0]['body']) + '\n' + '\n'.join(p['key'] + ': ' + p['detail'] for p in d['pages'])},
+            {'startFrame':133, 'endFrame':duration(d)[1], 'title':'\n'.join(d['closingTitle']), 'body':d['cta']}
+        ]
     result = []
     for start, end, kind, i in scenes(d):
         if kind == 'Opening': title, body = d['coverTitle'], d['tagline']

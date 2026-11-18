@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Native 2D editor previews for all registered effects; 3D is approximated.
+"""Native 2D editor previews for the original seven effects; 3D is approximated.
 
 Run in an isolated environment with pyJianYingDraft 0.2.7 and Pillow.
 """

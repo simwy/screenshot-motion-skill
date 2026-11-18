@@ -22,7 +22,7 @@ def project(name, count=5, hold=120):
 
 class EditingTests(unittest.TestCase):
     def test_fixed_shots_cover_every_frame_without_overlap(self):
-        for name,total in [('spotlight',360),('launch',600),('orbit',540),('kinetic',480),('prism',540),('flipstack',600)]:
+        for name,total in [('spotlight',360),('launch',600),('orbit',540),('kinetic',480),('prism',540),('flipstack',600),('entrance',240)]:
             d=project(name); cuts=scenes(d)
             self.assertEqual(cuts[0][0],0)
             self.assertEqual(cuts[-1][1],total)

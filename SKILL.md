@@ -1,14 +1,15 @@
 ---
 name: screenshot-motion-skill
-description: Create product videos from screenshots using card spotlight, dark launch-film, orbital gallery, kinetic graphics, prismatic folds, floating page stacks, or page-turn storybook templates, with editable copy, optional licensed audio, portable desktop editing packs, and experimental native editable previews for all seven templates with macOS/Windows draft installers for Jianying and CapCut. Use for screenshot promos, app launch videos, flipbooks, or extending this template library.
+description: Create product videos from screenshots using card spotlight, dark launch-film, orbital gallery, kinetic graphics, prismatic folds, floating page stacks, page-turn storybook, or gentle entrance fan templates, with editable copy, optional licensed audio, portable desktop editing packs, and experimental native editable previews for the original seven templates with macOS/Windows draft installers for Jianying and CapCut. Use for screenshot promos, app launch videos, flipbooks, or extending this template library.
 ---
 
 # Screenshot Motion Skill
 
-By default, produce a finished MP4, its editable Remotion source project, and a portable native editable Jianying preview draft with an installer and import instructions. No Output field or separate draft request is required. Honor explicit video-only requests or a different target editor. Native previews support all seven templates; their 2D reconstructions and client acceptance differ from the rendered effects:
+Eight templates are available. For the original seven, by default produce a finished MP4, its editable Remotion source project, and a portable native editable Jianying preview draft with an installer and import instructions. No Output field or separate draft request is required. Honor explicit video-only requests or a different target editor. Native previews support the original seven templates; their 2D reconstructions and client acceptance differ from the rendered effects:
 
 | Template | Effect | Screenshots | Duration |
 | --- | --- | --- | --- |
+| `entrance` | Gentle upward fan, introductions on both sides, wide fan and lifted center card | Exactly 5 | 8 seconds |
 | `spotlight` | Five cards unfold, the center screenshot becomes the hero, then the lineup returns | Exactly 5 | 12 seconds |
 | `kinetic` | Bold type, split screens and graphic wipes | Exactly 5 | 16 seconds |
 | `prism` | Accordion screens, layered glass reveals and light sweeps | Exactly 5 | 18 seconds |
@@ -33,7 +34,7 @@ Accept revision requests in natural language, update the generated project, and 
 
 ## Create the video
 
-1. Read [the configuration reference](references/configuration.md). Write a project JSON beside the user's assets, using the matching example in `examples/` as a starting point. Write short, concrete explanations, one feature per screenshot. Select `--template spotlight`, `--template launch`, `--template orbit`, `--template kinetic`, `--template prism`, `--template flipstack`, or `--template storybook`; the command below illustrates storybook. Respect the validated line limits.
+1. Read [the configuration reference](references/configuration.md). Write a project JSON beside the user's assets, using the matching example in `examples/` as a starting point. Write short, concrete explanations, one feature per screenshot. Select `--template spotlight`, `--template launch`, `--template orbit`, `--template kinetic`, `--template prism`, `--template flipstack`, `--template entrance`, or `--template storybook`; the command below illustrates storybook. Respect the validated line limits.
 2. Prepare an isolated job:
    ```sh
    python3 /path/to/screenshot-motion-skill/scripts/motion.py prepare --template storybook --config /path/to/project.json --out /path/to/new-job
@@ -44,7 +45,7 @@ Accept revision requests in natural language, update the generated project, and 
    ```sh
    python3 /path/to/screenshot-motion-skill/scripts/motion.py render --job /path/to/new-job --frame 150 --browser /path/to/chrome
    ```
-   Inspect the resulting PNG. Correct copy, clipping or layout before a full render. Useful preview frames: spotlight 105/190/330; launch 60/150/250/355/450/550; orbit 45/170/270/380/490; kinetic 35/100/170/245/320/430; prism 70/150/240/330/470; flipstack 24/100/164/200/550; storybook 150 and `90 + holdFrames + 21` for the first turn midpoint. Choose frames within the job duration.
+   Inspect the resulting PNG. Correct copy, clipping or layout before a full render. Useful preview frames: entrance 35/65/105/170; spotlight 105/190/330; launch 60/150/250/355/450/550; orbit 45/170/270/380/490; kinetic 35/100/170/245/320/430; prism 70/150/240/330/470; flipstack 24/100/164/200/550; storybook 150 and `90 + holdFrames + 21` for the first turn midpoint. Choose frames within the job duration.
 5. Render without `--frame`. This creates `out/video-silent.mp4`. Supply an existing browser explicitly if auto-discovery fails; the script does not download a browser.
 6. Run `motion.py mix --job /path/to/new-job` to create `out/video.mp4`. Without audio inputs it makes a silent copy. For music, transition sounds or paper sounds, read [audio and licensing](references/audio-and-licensing.md). Do not add narration unless requested and a suitable authorized voice service is available.
 7. Complete the desktop editing delivery below unless the user explicitly requests video only. If draft generation is blocked, deliver the completed video and identify the specific blocker; do not silently omit the draft or label Remotion source as an editor draft.
@@ -52,7 +53,9 @@ Accept revision requests in natural language, update the generated project, and 
 
 ## Desktop editing delivery
 
-For the default Jianying draft delivery (or CapCut when explicitly selected), use `scripts/motion_native.py` for the selected template; it delegates Storybook to the existing book exporter. Read [editing export and compatibility](references/editor-export.md). All seven templates have native image/text/keyframe recipes. Six newer recipes are experimental 2D reconstructions; do not claim their 3D motion is identical or their client compatibility is already verified.
+For `entrance`, deliver MP4 and Remotion source; use a clean render and portable editing pack when continued desktop editing is requested. No native draft recipe exists yet: do not route Entrance to `motion_native.py` or promise native layers.
+
+For the default Jianying draft delivery (or CapCut when explicitly selected), use `scripts/motion_native.py` for the selected template; it delegates Storybook to the existing book exporter. Read [editing export and compatibility](references/editor-export.md). The original seven templates have native image/text/keyframe recipes. Six newer recipes are experimental 2D reconstructions; do not claim their 3D motion is identical or their client compatibility is already verified.
 
 Generate the matching full rendered reference as well. For cross-machine delivery use `scripts/editor_bundle.py`, then `scripts/install_editor_bundle.py` on the destination. The installer supports macOS and Windows paths, Unicode filenames and readable legacy/modern empty-project schemas. CapCut requires a new empty project from the destination build. Jianying can use a separate legacy draft without a template; encrypted templates are unsupported and must not be overwritten. Windows packaging is implemented; Windows client acceptance is pending. Never turn packaging tests into a claim that the draft opens or renders correctly.
 

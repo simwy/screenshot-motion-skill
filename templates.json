@@ -111,5 +111,24 @@
       434
     ],
     "description": "Shared-spine multi-leaf riffle with a continuous camera push and front-facing page reveal."
+  },
+  "entrance": {
+    "composition": "UIEntrance",
+    "component": "Entrance",
+    "module": "Entrance",
+    "minPages": 5,
+    "maxPages": 5,
+    "timing": "fixed",
+    "frames": 240,
+    "cues": [
+      7,
+      20,
+      33,
+      46,
+      59,
+      90,
+      132
+    ],
+    "description": "Gentle fan-shaped upward card entrances with side introductions, wide fan-out and a lifted center card."
   }
 }

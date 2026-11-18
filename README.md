@@ -6,9 +6,9 @@
 
 `screenshot-motion-skill` is an open-source agent skill for Codex, Claude Code, and other local AI coding assistants. Turn app, website, or SaaS screenshots into animated product demo videos, write captions, and render a 1080p MP4 locally with Remotion.
 
-- **Seven motion templates:** spotlight cards, dark launch films, page-turn storybooks, orbital galleries, kinetic graphics, prismatic folds, and floating page stacks.
+- **Eight motion templates:** spotlight cards, dark launch films, page-turn storybooks, orbital galleries, kinetic graphics, prismatic folds, floating page stacks, and gentle fan entrances.
 - **Revise in conversation:** change headlines, captions, and effects, then render again.
-- **Keep editing:** receive the Remotion source project, with an experimental native Jianying preview draft by default; desktop editing packs and CapCut drafts are also available.
+- **Keep editing:** receive the Remotion source project, with an experimental native Jianying preview draft for the original seven effects; desktop editing packs and CapCut drafts are also available.
 
 [Quick start](#how-to-use) · [Outputs](#what-you-get) · [Requirements](#requirements) · [FAQ](#faq)
 
@@ -21,10 +21,15 @@
 | ![Storybook](docs/previews/storybook.gif) | ![Orbit](docs/previews/orbit.gif) |
 | **Kinetic** | **Prism** |
 | ![Kinetic](docs/previews/kinetic.gif) | ![Prism](docs/previews/prism.gif) |
-| **Flipstack** | |
-| ![Flipstack](docs/previews/flipstack.gif) | |
+| **Flipstack** | **Entrance** |
+| ![Flipstack](docs/previews/flipstack.gif) | ![Entrance](docs/previews/entrance.gif) |
 
 <sub>Small, accelerated, silent previews. Final videos: 1080p · 30 fps.</sub>
+
+
+### Eighth template: Entrance
+
+Choose `entrance` for an 8-second video using five screenshots: cards rise in a gentle fan, product copy fills the left side, feature descriptions light up on the right, then the cards spread out and the center card lifts beneath the closing title. Copy, labels and accent color are configurable. Supports 1080p MP4, Remotion source, clean plates and portable editing packs. Native Jianying/CapCut drafts are not yet supported for Entrance. [Example configuration](examples/entrance.json) · [Copy mapping](references/templates.md#entrance--8-seconds)
 
 ## How to use
 
@@ -63,7 +68,7 @@ Caption language: English. Write short captions for me.
 Screenshot order: Use the attachment order.
 ```
 
-Replace `orbit` with any effect above: **`spotlight` · `launch` · `storybook` · `orbit` · `kinetic` · `prism` · `flipstack`**.
+Replace `orbit` with any effect above: **`spotlight` · `launch` · `storybook` · `orbit` · `kinetic` · `prism` · `flipstack` · `entrance`**.
 
 With the prompt above, your agent writes the copy, creates the animation, checks the result, and delivers the MP4, Jianying draft bundle, and import instructions. You can then say “Change the headline” or “Replace the third screenshot.” For CapCut, add “Use CapCut instead of Jianying”; its installer requires a new empty project from your installed CapCut build.
 
@@ -73,7 +78,7 @@ With the prompt above, your agent writes the copy, creates the animation, checks
 - **Optional music and sound effects** from audio you provide.
 - **An optional editing pack** with clean motion clips, editable SRT captions, separate audio tracks, and your screenshots.
 
-- **Native preview drafts for all seven effects in Jianying or CapCut** (Jianying by default) with replaceable screenshots, separate text layers and 2D keyframes, plus matching full-effect reference videos. See the showcase above for compatibility and validation scope.
+- **Native preview drafts for the original seven effects in Jianying or CapCut** (Jianying by default) with replaceable screenshots, separate text layers and 2D keyframes, plus matching full-effect reference videos. See the showcase above for compatibility and validation scope.
 
 ## Requirements
 
@@ -83,7 +88,7 @@ Native preview drafts need additional Python dependencies and the target desktop
 
 ## Keep creating in CapCut: replace screenshots and edit page text
 
-**All seven effects can generate native editable CapCut preview drafts.** The screenshot below shows the previously verified Storybook preview on macOS. Continue working in the desktop editor after generation: replace product screenshots, revise page copy, and refine the edit.
+**The original seven effects can generate native editable CapCut preview drafts.** The screenshot below shows the previously verified Storybook preview on macOS. Continue working in the desktop editor after generation: replace product screenshots, revise page copy, and refine the edit.
 
 ![Storybook native draft in CapCut for macOS, showing the book preview and separate text tracks](docs/previews/capcut-storybook-editable.jpg)
 
@@ -106,7 +111,7 @@ while preserving as much of the original layout and effect as possible.
 
 No Output field is needed: by default, the skill delivers both the MP4 and a Jianying draft bundle, including an installer and import instructions. The draft has replaceable screenshots and separate editable promotional text. Delivery notes state actual validation and visual differences from the MP4. A Remotion source project is not an editor draft. If you only need the video, add “Export only the MP4.”
 
-**Current scope:** draft generation covers all seven effects; destination installation handles macOS/Windows paths and readable legacy/modern draft schemas. The six newer native recipes are experimental 2D approximations, particularly simplified for Flipstack. Native perspective, mesh bending, lighting, crops and typography can differ from the original render. Only the earlier Storybook preview has client evidence: opening, cover/inner layout and text panel in CapCut macOS 9.7.1. The new all-effects bundle has not passed client acceptance; this Mac's window-control errors blocked further GUI checks, and Windows has no test machine yet. Replacement, text-edit/save/reopen and final native export remain pending. [Editing and compatibility →](references/editor-export.md)
+**Current scope:** draft generation covers the original seven effects; destination installation handles macOS/Windows paths and readable legacy/modern draft schemas. The six newer native recipes are experimental 2D approximations, particularly simplified for Flipstack. Native perspective, mesh bending, lighting, crops and typography can differ from the original render. Only the earlier Storybook preview has client evidence: opening, cover/inner layout and text panel in CapCut macOS 9.7.1. The new all-effects bundle has not passed client acceptance; this Mac's window-control errors blocked further GUI checks, and Windows has no test machine yet. Replacement, text-edit/save/reopen and final native export remain pending. [Editing and compatibility →](references/editor-export.md)
 
 ## Good to know
 

@@ -1,9 +1,10 @@
 # Showcase preview maintenance
 
-These silent GIFs were exported from the project owner's SYTASK demonstration videos, refreshed on 2026-11-14 with the supplied English UI screenshots. They illustrate the seven included effects and are not runtime inputs. No original screenshot files or audio are included here.
+These silent GIFs were exported from the project owner's SYTASK demonstration videos, refreshed on 2026-11-14 with the supplied English UI screenshots. Together with the Entrance preview added on 2026-11-18, they illustrate the eight included effects and are not runtime inputs. No original screenshot files or audio are included here.
 
 | Preview | Source demo | Playback speed |
 | --- | --- | --- |
+| `entrance.gif` | Gentle fan entrance with side introductions, Chinese UI | 1.5× |
 | `flipstack.gif` | SYTASK floating page stack, English UI | 2× |
 | `spotlight.gif` | SYTASK spotlight, sound edition | 1.5× |
 | `launch.gif` | SYTASK launch film, sound edition | 2× |

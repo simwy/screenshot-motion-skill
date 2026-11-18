@@ -26,3 +26,5 @@ For flipstack direction revisions, verify left-to-right leaf motion about the ri
 For whole-book movement, compare frames 0/10/20/30/44: the shared spine translates along a leftward arc and returns to the final front-facing composition. Check all page corners during the large-scale intermediate turns.
 
 Check chapter boundaries 149/150 and 239/240 for pose continuity. Camera motion must not shrink or jump back to its opening pose, and intermediate approach points must not ease to a stop.
+
+For Entrance, inspect frames 35/65 for gentle upward fan entry and readable side introductions, 90–105 for the side-copy exit and fan transition, and 170 for the lifted center card and closing text. Check clean mode removes side text, headings and numbering without altering screenshot pixels.

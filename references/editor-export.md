@@ -103,3 +103,7 @@ The adapter uses `pyJianYingDraft==0.2.7` (Apache-2.0), installed into an isolat
 Generate on the destination machine: the draft contains absolute media paths, while the editing pack is portable. The adapter copies its media into the draft folder, never overwrites an existing folder, and does not install/register a draft in the application. If the folder moves, regenerate from the pack at the new location. Do not rename JSON files or overwrite encrypted app drafts as a compatibility workaround.
 
 A successful JSON export or library readback is **not** proof that a current editor opens it. Keep this feature labeled experimental until the exact target build is tested in the GUI. If incompatible, deliver the portable editing pack rather than promise automatic draft import.
+
+## Entrance support
+
+The eighth template (`entrance`) supports clean video and portable editing packs only. No native draft recipe exists yet; keep original seven-template native compatibility claims scoped to those templates.
