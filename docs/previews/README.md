@@ -5,7 +5,7 @@ These silent GIFs were exported from the project owner's SYTASK demonstration vi
 | Preview | Source demo | Playback speed |
 | --- | --- | --- |
 | `entrance.gif` | Gentle fan entrance with side introductions, Chinese UI | 1.5× |
-| `flipstack.gif` | SYTASK floating page stack, English UI | 2× |
+| `flipstack.gif` | SYTASK floating page stack, English UI | 1× (20 fps, 400 frames, 20 seconds) |
 | `spotlight.gif` | SYTASK spotlight, sound edition | 1.5× |
 | `launch.gif` | SYTASK launch film, sound edition | 2× |
 | `kinetic.gif` | SYTASK kinetic promo | 2× |
@@ -13,7 +13,7 @@ These silent GIFs were exported from the project owner's SYTASK demonstration vi
 | `orbit.gif` | SYTASK orbital showcase | 2× |
 | `storybook.gif` | SYTASK storybook, sound edition | 3× |
 
-Previews are 400 pixels wide at 8 fps with a reduced palette. The README labels their speed and silent playback; users should not judge full-resolution text sharpness or audio from these previews. Preview size is kept small; full-resolution video files are excluded. Anyone downloading the complete skill folder also downloads them.
+Previews are 400 pixels wide with a reduced palette. Flipstack was refreshed on 2026-11-18 at 20 fps and normal speed to preserve the leaf-riffle motion; the other previews use 8 fps. The README labels their speed and silent playback; users should not judge full-resolution text sharpness or audio from these previews. Preview size is kept small; full-resolution video files are excluded. Anyone downloading the complete skill folder also downloads them.
 
 When adding an effect, export a small preview from an actual rendered video, check it visually, and add the example and invocation prompt to the README. Keep the preview near or below 400 KB when practical. Do not add full MP4s, large GIFs, original media, or test outputs. Use only material the project owner has authorized for public showcase.
 

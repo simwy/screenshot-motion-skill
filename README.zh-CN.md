@@ -24,6 +24,9 @@
 | **Flipstack · 卡片翻叠** | |
 | ![Flipstack](docs/previews/flipstack.gif) | ![Entrance](docs/previews/entrance.gif) |
 
+<sub>Flipstack：正常速度 · 20 fps · 完整 20 秒，保留翻叠过程。</sub>
+
+
 <sub>以上为缩小、加速的静音预览。最终视频：1080p · 30 fps。</sub>
 
 

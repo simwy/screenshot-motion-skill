@@ -24,6 +24,9 @@
 | **Flipstack** | **Entrance** |
 | ![Flipstack](docs/previews/flipstack.gif) | ![Entrance](docs/previews/entrance.gif) |
 
+<sub>Flipstack: normal speed · 20 fps · full 20-second motion.</sub>
+
+
 <sub>Small, accelerated, silent previews. Final videos: 1080p · 30 fps.</sub>
 
 
