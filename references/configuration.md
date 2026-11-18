@@ -1,6 +1,6 @@
 # Project configuration
 
-The input is a UTF-8 JSON object. Choose a `template` value: `spotlight`, `launch`, `orbit`, `kinetic`, `prism`, `flipstack`, `entrance`, or `storybook`; `prepare --template` overrides this field. Missing selection defaults to storybook for backward compatibility. Image and audio paths resolve relative to the configuration file; absolute local paths also work. Remote URLs are not fetched. Prepared jobs contain local asset copies.
+The input is a UTF-8 JSON object. Choose a `template` value: `spotlight`, `launch`, `orbit`, `kinetic`, `prism`, `flipstack`, `entrance`, or `storybook`; `prepare --template` overrides this field. Missing selection defaults to storybook for backward compatibility. Image paths resolve relative to the configuration file; absolute local paths also work. Remote URLs are not fetched. Prepared jobs contain local asset copies.
 
 | Field | Required | Constraints |
 | --- | --- | --- |
@@ -11,34 +11,11 @@ The input is a UTF-8 JSON object. Choose a `template` value: `spotlight`, `launc
 | `cta` | Yes | Maximum 28 characters; use a truthful action |
 | `holdSeconds` | No | Storybook only: 3–12 seconds, default 4; rounded to a whole frame |
 | `pages` | Yes | Exactly 5 for spotlight/launch/orbit/kinetic/prism/flipstack/entrance; 1–12 for storybook |
-| `audio` | No | Optional `music` and `pageTurn` (storybook) or `transition` (spotlight/launch/orbit/kinetic/prism/flipstack/entrance) objects |
+| `audio` | No | Deprecated; ignored. Generated videos contain no audio. |
 
 Each page needs `image` (PNG/JPEG/WebP), `tag` (32 characters), `key` (36), `detail` (40), `title` (1–3 lines, 22 characters each), and `body` (1–3 lines, 44 characters each). Limits are maxima, not writing targets. Favor fewer words and inspect the final layout. Storybook headings shrink to the page width; spotlight, launch, orbit, kinetic and prism use fixed typography, so inspect line breaks and keep copy concise. English is the tested typography; other scripts require suitable installed fonts and a fresh visual check.
 
-Example optional audio:
-
-```json
-{
-  "audio": {
-    "music": {
-      "file": "audio/music.mp3",
-      "source": "https://example.org/original-track-page",
-      "license": "CC0-1.0",
-      "gain": 0.3,
-      "startSeconds": 0
-    },
-    "pageTurn": {
-      "file": "audio/page-turn.wav",
-      "source": "Original recording by the project owner",
-      "license": "Owner-authorized commercial use",
-      "gain": 1,
-      "startSeconds": 0
-    }
-  }
-}
-```
-
-The tool records the supplied license claim; it does not verify it. Gain range is 0–10. Music is trimmed/padded to video length, never automatically looped. The page-turn clip uses at most 1.4 seconds and aligns its measured energy peak with each turn midpoint. Provide a clean, single paper sound. Very short, empty or unsuitable clips need replacement.
+Videos are visual-only. Do not configure music, sound effects, or narration.
 
 ## Storybook timeline
 

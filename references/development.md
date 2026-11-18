@@ -2,7 +2,7 @@
 
 This reference is for contributors, debugging, and agents executing the skill. The user-facing workflow is to invoke the skill in conversation; users do not need to author JSON or run these commands themselves.
 
-Requirements: Python 3.9+, Node.js 22+, npm, Chrome/Chromium, and FFmpeg for audio mixing and verification.
+Requirements: Python 3.9+, Node.js 22+, npm, Chrome/Chromium, and FFmpeg for silent finalization and verification.
 
 From the skill directory, list the templates and prepare an isolated job:
 
@@ -15,7 +15,7 @@ Start from the matching JSON in `examples/`. Replace sample image paths and copy
 
 Inside the generated job, install the pinned dependencies with `npm ci`. Use `npm run studio` for interactive developer preview.
 
-From the skill directory, render a still, inspect it, then render the complete video and mix any configured audio:
+From the skill directory, render a still, inspect it, then render the complete video and finalize the silent MP4:
 
 ```sh
 python3 scripts/motion.py render --job /path/to/new-job --frame 190 --browser /path/to/chrome
@@ -23,11 +23,11 @@ python3 scripts/motion.py render --job /path/to/new-job --browser /path/to/chrom
 python3 scripts/motion.py mix --job /path/to/new-job
 ```
 
-Output: `out/video-silent.mp4` and `out/video.mp4`. Without audio, both are silent. `--browser` can be omitted if Chrome is found; `CHROME_PATH` is also supported. The helper does not automatically download a browser. `scripts/book.py` is a compatibility alias; prefer `motion.py`.
+Output: `out/video-silent.mp4` and `out/video.mp4`. Both are always silent; legacy audio inputs are ignored. `--browser` can be omitted if Chrome is found; `CHROME_PATH` is also supported. The helper does not automatically download a browser. `scripts/book.py` is a compatibility alias; prefer `motion.py`.
 
 Follow the [quality checks](quality.md) before delivery. Caption edits can be made in the job's `project.json` before rerendering. For screenshot changes or storybook duration changes, prepare a new job from the input configuration so the composition metadata is regenerated consistently.
 
-Python orchestrates preparation, validation, and audio mixing. The React/Remotion renderers define the motion. The skill supplies the agent's workflow for choosing a template, interpreting screenshots, writing copy, checking results, and carrying out revisions.
+Python orchestrates preparation, validation, and silent finalization. The React/Remotion renderers define the motion. The skill supplies the agent's workflow for choosing a template, interpreting screenshots, writing copy, checking results, and carrying out revisions.
 
 ## Desktop editing output
 

@@ -1,6 +1,6 @@
 ---
 name: screenshot-motion-skill
-description: Create screenshot-based product videos with eight animation templates, editable copy, optional audio, and MP4 plus native Jianying draft delivery. Use for screenshot promos, app launch videos, flipbooks, or extending this template library.
+description: Create screenshot-based product videos with eight animation templates, editable copy, silent video, and MP4 plus native Jianying draft delivery. Use for screenshot promos, app launch videos, flipbooks, or extending this template library.
 ---
 
 # Screenshot Motion Skill
@@ -44,7 +44,7 @@ Inspect screenshots before writing copy. Use the real UI without inventing contr
 
 ## User-facing interaction
 
-Treat invocation as a request to produce the video. Ask for screenshots and product details only when missing; write the configuration and execute preparation, rendering, and mixing yourself when tools are available. Do not hand the user Python commands or require them to author JSON as the normal workflow. Check local dependencies and report concrete missing requirements. Honor execution permissions; explain any action the user must take when your environment cannot perform it.
+Treat invocation as a request to produce the video. Ask for screenshots and product details only when missing; write the configuration and execute preparation and rendering yourself when tools are available. Do not hand the user Python commands or require them to author JSON as the normal workflow. Check local dependencies and report concrete missing requirements. Honor execution permissions; explain any action the user must take when your environment cannot perform it.
 
 Accept revision requests in natural language, update the generated project, and render a revised result. For screenshot or storybook duration changes, prepare a new job so composition metadata stays consistent. Keep technical commands in agent execution or developer troubleshooting, unless the user explicitly requests them. See [developer rendering commands](references/development.md) for manual usage.
 
@@ -63,7 +63,7 @@ Accept revision requests in natural language, update the generated project, and 
    ```
    Inspect the resulting PNG. Correct copy, clipping or layout before a full render. Useful preview frames: entrance 35/65/105/170; spotlight 105/190/330; launch 60/150/250/355/450/550; orbit 45/170/270/380/490; kinetic 35/100/170/245/320/430; prism 70/150/240/330/470; flipstack 24/100/164/200/550; storybook 150 and `90 + holdFrames + 21` for the first turn midpoint. Choose frames within the job duration.
 5. Render without `--frame`. This creates `out/video-silent.mp4`. Supply an existing browser explicitly if auto-discovery fails; the script does not download a browser.
-6. Run `motion.py mix --job /path/to/new-job` to create `out/video.mp4`. Without audio inputs it makes a silent copy. For music, transition sounds or paper sounds, read [audio and licensing](references/audio-and-licensing.md). Do not add narration unless requested and a suitable authorized voice service is available.
+6. Run `motion.py mix --job /path/to/new-job` to finalize `out/video.mp4` with no audio track. All generated videos are visual-only: do not add background music, transition/paper sounds, or narration, and do not search for or download audio. Legacy audio configuration is ignored during preparation; the finalizer strips audio even from old rendered jobs.
 7. Complete the desktop editing delivery below unless the user explicitly requests video only. If draft generation is blocked, deliver the completed video and identify the specific blocker; do not silently omit the draft or label Remotion source as an editor draft.
 8. Follow [the output checks](references/quality.md), inspect the rendered file rather than only source code, then return the actual MP4 and Jianying draft only. Keep the job path and Remotion source internal. Be precise about whether narration, listening, or real-time playback was performed. If rendering is blocked, report the specific missing dependency; do not substitute a still image and call it a video.
 

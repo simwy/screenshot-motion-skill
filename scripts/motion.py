@@ -83,28 +83,9 @@ def prepare(config, out, template=None):
             raise ValueError('Screenshots must be PNG, JPEG or WebP')
         p['file'] = f'page-{i+1:02d}{source.suffix.lower()}'
         files.append((source, Path('public/screenshots') / p['file']))
-    audio = d.pop('audio', {})
+    # Legacy audio settings are ignored: all new jobs are visual-only.
+    d.pop('audio', None)
     manifest = {}
-    if not isinstance(audio, dict):
-        raise ValueError('audio must be an object')
-    effect = 'pageTurn' if selected == 'storybook' else 'transition'
-    if set(audio) - {'music', effect}:
-        raise ValueError(f'{selected} accepts music and {effect} audio')
-    for kind in ['music', effect]:
-        if kind not in audio:
-            continue
-        a = audio[kind]
-        if not isinstance(a, dict):
-            raise ValueError('Each audio entry must be an object')
-        source = local_file(a.get('file'), config.parent)
-        string(a.get('license'), 'audio license', 200)
-        string(a.get('source'), 'audio source / ownership record', 2048)
-        a['gain'] = number(a.get('gain', .3 if kind == 'music' else 1), 'gain', 0, 10)
-        a['startSeconds'] = number(a.get('startSeconds', 0), 'startSeconds', 0, 86400)
-        a['file'] = f'{kind}{source.suffix.lower()}'
-        a['sha256'] = hashlib.sha256(source.read_bytes()).hexdigest()
-        files.append((source, Path('public/audio') / a['file']))
-        manifest[kind] = a
     # Validate all inputs before creating anything. Input paths are not retained.
     shutil.copytree(ROOT / 'assets/video-template', out)
     entry = ("import React from 'react';\nimport {Composition,registerRoot} from 'remotion';\n"
@@ -175,59 +156,24 @@ def audio_cues(d):
     return [67] + [90+d['holdFrames']+i*(42+d['holdFrames'])+21 for i in range(len(d['pages'])-1)] + [close+21]
 
 def mix(job, stem=None):
+    """Compatibility finalizer: always deliver video without audio."""
+    if stem:
+        return None
     job = job.resolve()
+    video = job / 'out/video-silent.mp4'
+    if not video.is_file():
+        video = job / 'out/book-silent.mp4'
+    if not video.is_file():
+        raise ValueError('Render out/video-silent.mp4 before finalizing')
     ff = shutil.which('ffmpeg')
     if not ff:
         raise ValueError('FFmpeg is required on PATH')
-    d = json.loads((job / 'project.json').read_text())
-    manifest = json.loads((job / 'audio-manifest.json').read_text())
-    if stem:
-        manifest = {k:v for k,v in manifest.items() if (k == 'music') == (stem == 'music')}
-        if not manifest:
-            return None
-    video = job / 'out/video-silent.mp4'
-    if not video.is_file() and (job / 'out/book-silent.mp4').is_file():
-        video = job / 'out/book-silent.mp4'
-    if not video.is_file():
-        raise ValueError('Render out/video-silent.mp4 before mixing')
-    if not manifest:
-        shutil.copy2(video, job / 'out/video.mp4')
-        print('No audio supplied; out/video.mp4 is silent.')
-        return
-    _, frames = duration(d)
-    sec = frames / 30
-    cues = audio_cues(d)
-    args = [ff, '-y', '-v', 'error', '-i', video]
-    filters, stems, index = [], [], 1
-    for kind in ['music', 'pageTurn', 'transition']:
-        if kind not in manifest:
-            continue
-        a = manifest[kind]
-        args += ['-i', job / 'public/audio' / a['file']]
-        if kind == 'music':
-            filters.append(f'[{index}:a]atrim=start={a["startSeconds"]}:duration={sec},asetpts=PTS-STARTPTS,aresample=48000,volume={a["gain"]},afade=t=in:d=1,afade=t=out:st={sec-2}:d=2,apad=whole_dur={sec},atrim=end_sample={frames*1600},asetpts=N/SR/TB[music]')
-            stems.append('[music]')
-        else:
-            # Use a bounded clip and measure its energy peak, not its file start.
-            raw = subprocess.check_output([ff, '-v', 'error', '-ss', str(a['startSeconds']), '-i', str(job/'public/audio'/a['file']), '-t', '1.4', '-ar', '48000', '-ac', '1', '-f', 'f32le', '-'])
-            import array
-            values = array.array('f', raw)
-            if len(values) < 480:
-                raise ValueError('Effect audio is empty or too short at the requested offset')
-            peak = max(range(len(values)//480), key=lambda k: sum(v*v for v in values[k*480:(k+1)*480])) * .01
-            filters.append(f'[{index}:a]atrim=start={a["startSeconds"]}:duration=1.4,asetpts=PTS-STARTPTS,aresample=48000,volume={a["gain"]},afade=t=in:d=0.006,asplit={len(cues)}'+''.join(f'[p{i}]' for i in range(len(cues))))
-            for i, f in enumerate(cues):
-                filters.append(f'[p{i}]adelay={max(0,round((f/30-peak)*1000))}:all=1[s{i}]')
-                stems.append(f'[s{i}]')
-        index += 1
-    filters.append(''.join(stems)+f'amix=inputs={len(stems)}:normalize=0,apad=whole_dur={sec},atrim=end_sample={frames*1600},asetpts=N/SR/TB,alimiter=limit=0.85:level=false:latency=true[a]')
-    output = job / ('out/' + stem + '.wav' if stem else 'out/video.mp4')
-    args += ['-filter_complex', ';'.join(filters)]
-    args += ['-map', '[a]', '-c:a', 'pcm_s16le'] if stem else ['-map', '0:v', '-map', '[a]', '-c:v', 'copy', '-c:a', 'aac', '-b:a', '256k', '-movflags', '+faststart']
-    args += ['-ar', '48000', '-ac', '2', '-t', str(sec), output]
-    run(args)
+    output = job / 'out/video.mp4'
+    run([ff, '-y', '-v', 'error', '-i', video, '-map', '0:v:0',
+         '-c:v', 'copy', '-an', '-movflags', '+faststart', output])
     print(output)
     return output
+
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)

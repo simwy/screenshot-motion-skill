@@ -77,7 +77,7 @@ With the prompt above, your agent writes the copy, creates the animation, checks
 
 ## What you get
 
-- **A finished MP4**, with optional music and effects from audio you provide.
+- **A finished MP4**, with visuals only and no audio track.
 - **A Jianying `.jypack` with media**, containing replaceable screenshots and separate promotional text for the original seven templates. Entrance delivers MP4 only.
 
 Rendering source, installation helpers and QA files stay internal; they are not extra deliverables.
@@ -135,7 +135,7 @@ You can revise separate video headlines and captions. Text baked into a screensh
 
 ### Can I add background music?
 
-Yes. Supply audio you have permission to use and ask the agent to include it. Music is not bundled with the skill.
+No. The skill generates visual-only videos without background music or sound effects.
 
 ## More effects, same skill
 
