@@ -173,15 +173,6 @@ def export(job, out):
         text(p['cta'] if closing else p['tagline'],start,end,1030,792,27 if closing else 17,name+'行动文案',z+1,'#DAE9FF',fold=fold)
         text(p['tagline'],start,end,1030,845,12,name+'底部文字',z+1,'#A6C4EB',fold=fold)
     text(p['tagline'],0,total,82,1006,16,'底部标语',900,'#596A7B',moving=False,maxwidth=1300)
-    # Preserve optional independently mixed audio stems.
-    if (job/'audio-manifest.json').exists():
-        from motion import mix
-        for role in ('music','effects'):
-            source = mix(job, role)
-            if source:
-                target = media/f'{role}.wav'; shutil.copy2(source,target)
-                script.add_track(draft.TrackType.audio,role)
-                script.add_segment(draft.AudioSegment(str(target),draft.trange(0,us(total))),role)
     script.save()
     meta_path=out/'draft_meta_info.json'; meta=json.loads(meta_path.read_text(encoding='utf-8'))
     meta.update(draft_name=out.name,draft_fold_path=str(out),draft_root_path=str(out.parent),tm_duration=us(total))

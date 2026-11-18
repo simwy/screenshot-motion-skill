@@ -1,3 +1,5 @@
+Fixed templates + optional AI copy → deterministic engine → silent MP4 and optional draft ZIP. See [agent-free worker and cloud integration](references/engine.md).
+
 # screenshot-motion-skill — Screenshots to product demo videos
 
 **English** | [简体中文](README.zh-CN.md)
@@ -8,7 +10,7 @@
 
 - **Eight motion templates:** spotlight cards, dark launch films, page-turn storybooks, orbital galleries, kinetic graphics, prismatic folds, floating page stacks, and gentle fan entrances.
 - **Revise in conversation:** change headlines, captions, and effects, then render again.
-- **Keep editing:** receive an MP4 and a native Jianying `.jypack` with media for the original seven effects.
+- **Keep editing:** request a portable native Jianying installer ZIP for the original seven effects.
 
 [Quick start](#how-to-use) · [Outputs](#what-you-get) · [Requirements](#requirements) · [FAQ](#faq)
 
@@ -78,7 +80,7 @@ With the prompt above, your agent writes the copy, creates the animation, checks
 ## What you get
 
 - **A finished MP4**, with visuals only and no audio track.
-- **A Jianying `.jypack` with media**, containing replaceable screenshots and separate promotional text for the original seven templates. Entrance delivers MP4 only.
+- **An optional Jianying installer ZIP with media**, containing replaceable screenshots and separate promotional text for the original seven templates. Entrance delivers MP4 only.
 
 Rendering source, installation helpers and QA files stay internal; they are not extra deliverables.
 
@@ -86,9 +88,9 @@ Rendering source, installation helpers and QA files stay internal; they are not 
 
 Use a local AI coding agent with file and command access, plus **Python 3.9+, Node.js 22+, npm, Chrome / Chromium, and FFmpeg**. The agent checks the environment and runs the render; the first run requires dependency installation. See [rendering setup](references/development.md).
 
-Native draft generation needs pyJianYingDraft 0.2.7, Pillow and the Jianying desktop client. The client creates the `.jypack` using its backup-with-media command. The receiving editor must provide **Import Jianying Draft**.
+Native draft generation needs pyJianYingDraft 0.2.7 and Pillow, but no desktop client. Optional `.jypack` packaging requires the Jianying desktop client. The client creates the `.jypack` using its backup-with-media command. The receiving editor must provide **Import Jianying Draft**.
 
-## Import your Jianying draft
+## Optional client-backed import your Jianying draft
 
 1. Download the `.jypack`; **do not unzip it**.
 2. On Jianying’s home screen, choose **导入剪映草稿** (Import Jianying Draft).
@@ -98,7 +100,7 @@ The agent generates the package through **备份至本地 → 备份草稿及素
 
 Replace screenshots while retaining effects/keyframes, and edit promotional copy in the text tracks. Text inside a screenshot remains part of the image.
 
-Default delivery is **MP4 + `.jypack`**. Ask for “MP4 only” to skip the draft, or explicitly request CapCut for its separate workflow. [Developer export workflow →](references/jianying-jypack.md)
+Default delivery is **MP4**. Request a portable installer ZIP for client-free draft generation, or explicitly request `.jypack` for the desktop-client workflow. [Developer export workflow →](references/jianying-jypack.md)
 
 ### CapCut option
 

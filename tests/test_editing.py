@@ -9,7 +9,7 @@ import unittest
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/'scripts'))
 from editor_pack import scenes, captions, timestamp, export_pack
-from motion import duration, job_fingerprint, registry
+from engine import duration, job_fingerprint, registry
 
 
 def project(name, count=5, hold=120):

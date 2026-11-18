@@ -1,0 +1,88 @@
+{
+  "brand": "SYTASK",
+  "accent": "#1467DB",
+  "tagline": "WORK IN MOTION",
+  "coverTitle": [
+    "Plan your day.",
+    "Work together."
+  ],
+  "closingTitle": [
+    "Your next step,",
+    "made clear."
+  ],
+  "cta": "TASKS. PROGRESS. TEAM.",
+  "holdSeconds": 4,
+  "pages": [
+    {
+      "image": "screenshots/01-home.png",
+      "tag": "YOUR DAILY WORK",
+      "title": [
+        "Make room",
+        "for better work."
+      ],
+      "body": [
+        "See what comes next.",
+        "Keep work in one place."
+      ],
+      "detail": "See your daily tasks",
+      "key": "Overview"
+    },
+    {
+      "image": "screenshots/02-progress.png",
+      "tag": "FIVE VIEWS. ONE WORKFLOW.",
+      "title": [
+        "Make room",
+        "for better work."
+      ],
+      "body": [
+        "See what comes next.",
+        "Keep work in one place."
+      ],
+      "detail": "Follow work in progress",
+      "key": "Progress"
+    },
+    {
+      "image": "screenshots/03-members.png",
+      "tag": "FIVE VIEWS. ONE WORKFLOW.",
+      "title": [
+        "Make room",
+        "for better work."
+      ],
+      "body": [
+        "See what comes next.",
+        "Keep work in one place."
+      ],
+      "detail": "Find your team",
+      "key": "Team"
+    },
+    {
+      "image": "screenshots/04-profile.png",
+      "tag": "FIVE VIEWS. ONE WORKFLOW.",
+      "title": [
+        "Make room",
+        "for better work."
+      ],
+      "body": [
+        "See what comes next.",
+        "Keep work in one place."
+      ],
+      "detail": "Review your activity",
+      "key": "Profile"
+    },
+    {
+      "image": "screenshots/05-create-task.png",
+      "tag": "FIVE VIEWS. ONE WORKFLOW.",
+      "title": [
+        "Make room",
+        "for better work."
+      ],
+      "body": [
+        "See what comes next.",
+        "Keep work in one place."
+      ],
+      "detail": "Plan the next step",
+      "key": "New task"
+    }
+  ],
+  "template": "entrance"
+}

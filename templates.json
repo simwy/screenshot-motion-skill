@@ -16,13 +16,6 @@
     "maxPages": 5,
     "timing": "fixed",
     "frames": 360,
-    "cues": [
-      30,
-      43,
-      51,
-      150,
-      280
-    ],
     "description": "Five-card fan-out, hero focus and return to a full lineup."
   },
   "launch": {
@@ -33,14 +26,6 @@
     "maxPages": 5,
     "timing": "fixed",
     "frames": 600,
-    "cues": [
-      18,
-      90,
-      207,
-      300,
-      425,
-      497
-    ],
     "description": "Dark launch film with screenshot collage, feature close-ups and CTA."
   },
   "orbit": {
@@ -51,13 +36,6 @@
     "maxPages": 5,
     "timing": "fixed",
     "frames": 540,
-    "cues": [
-      30,
-      105,
-      215,
-      325,
-      442
-    ],
     "description": "Neon orbital gallery, rotating screenshot depth and a cinematic final lineup."
   },
   "kinetic": {
@@ -68,14 +46,6 @@
     "maxPages": 5,
     "timing": "fixed",
     "frames": 480,
-    "cues": [
-      15,
-      63,
-      138,
-      213,
-      288,
-      365
-    ],
     "description": "Bold kinetic typography, alternating split screens and graphic wipes."
   },
   "prism": {
@@ -86,13 +56,6 @@
     "maxPages": 5,
     "timing": "fixed",
     "frames": 540,
-    "cues": [
-      32,
-      104,
-      194,
-      284,
-      380
-    ],
     "description": "Hinged accordion screens, layered glass reveals and prismatic light sweeps."
   },
   "flipstack": {
@@ -103,13 +66,6 @@
     "maxPages": 5,
     "timing": "fixed",
     "frames": 600,
-    "cues": [
-      18,
-      164,
-      254,
-      344,
-      434
-    ],
     "description": "Shared-spine multi-leaf riffle with a continuous camera push and front-facing page reveal."
   },
   "entrance": {
@@ -120,15 +76,6 @@
     "maxPages": 5,
     "timing": "fixed",
     "frames": 240,
-    "cues": [
-      7,
-      20,
-      33,
-      46,
-      59,
-      90,
-      132
-    ],
     "description": "Gentle fan-shaped upward card entrances with side introductions, wide fan-out and a lifted center card."
   }
 }

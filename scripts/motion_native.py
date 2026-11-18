@@ -10,7 +10,7 @@ import shutil
 from pathlib import Path
 from PIL import Image, ImageDraw
 import pyJianYingDraft as draft
-from motion import duration, mix
+from engine import duration
 
 
 def progress(f, a, b):
@@ -77,16 +77,16 @@ def export(job, out):
         seg=draft.VideoSegment(str(path),draft.trange(us(start),us(end-start)))
         with Image.open(path) as im: dims=im.size
         animate(seg,start,end,state,dims);add(seg,label,z,draft.TrackType.video)
-    def text(value,start,end,x,y,size,label,z=900,color=ink,bold=False,alpha=None):
+    def text(value,start,end,x,y,size,label,z=900,color=ink,bold=False,alpha=None,center=False):
         if not value:return
         lines=value if isinstance(value,list) else [value]
         for i,line in enumerate(lines):
             # Native multiline copy stays independently editable. Approximate width
             # is used only to place left-aligned text; native font metrics may differ.
-            fs=min(size,700/max(1,len(line))/.56)
+            fs=size if center else min(size,700/max(1,len(line))/.56)
             width=len(line)*fs*.53
-            seg=draft.TextSegment(line,draft.trange(us(start),us(end-start)),style=draft.TextStyle(size=fs/12,bold=bold,color=tuple(int(color[j:j+2],16)/255 for j in (1,3,5)),align=0))
-            animate(seg,start,end,lambda f,i=i:(x+width/2,y+i*size*1.12,1,1,0,alpha(f) if alpha else 1))
+            seg=draft.TextSegment(line,draft.trange(us(start),us(end-start)),style=draft.TextStyle(size=fs/12,bold=bold,color=tuple(int(color[j:j+2],16)/255 for j in (1,3,5)),align=1 if center else 0, auto_wrapping=False, max_line_width=1.0))
+            animate(seg,start,end,lambda f,i=i:(x if center else x+width/2,y+i*size*1.12,1,1,0,alpha(f) if alpha else 1))
             add(seg,label,z,draft.TrackType.text)
     def card(i,start,end,state,z=20):
         image(paper,start,end,lambda f:(state(f)[0],state(f)[1],state(f)[2]+12,state(f)[3]+12,state(f)[4],state(f)[5]),f'Frame {i+1}',z)
@@ -117,7 +117,15 @@ def export(job, out):
                 w=lerp(272,425 if i==2 else 240,focus)
                 return lerp(x,1320 if i==2 else ex+(-400 if i<2 else 400),focus),lerp(y,563 if i==2 else y+55,focus)+(1-intro)*160,w,w*16/9,lerp((i-2)*5,(i-2)*3,q)*(1-focus),intro*(1 if i==2 else 1-focus)
             card(i,0,total,state,50 if i==2 else 20+i*2)
-        copy(None,0,145,480,205,70);copy(d['pages'][2],151,275,143,390,80);copy(None,300,total,470,210,65,True)
+        # Spotlight joins cover/closing lines in React; do not use the generic
+        # per-line left-aligned copy helper for these centered sections.
+        opening=lambda f:progress(f,3,28)*(1-progress(f,122,145))
+        closing=lambda f:progress(f,278,308)
+        text(' '.join(d['coverTitle']),0,145,960,215,76,'Opening headline',bold=True,alpha=opening,center=True,color='#142139')
+        text(d['tagline'],0,145,960,290,29,'Opening subtitle',alpha=opening,center=True,color='#6A778B')
+        copy(d['pages'][2],151,275,143,390,80)
+        text(' '.join(d['closingTitle']),278,total,960,223,76,'Closing headline',bold=True,alpha=closing,center=True,color='#142139')
+        text(d['cta'],278,total,960,298,29,'Closing subtitle',alpha=closing,center=True,color='#69768C')
     elif name=='orbit':
         for i in range(5):
             def state(f,i=i):
@@ -181,11 +189,6 @@ def export(job, out):
     # Native directional wipes, kept separate from editable screenshots/copy.
     cuts={'kinetic':[60,135,210,285,360],'launch':[90,300],'prism':[100,190,280,370]}.get(name,[])
     for c in cuts:image(rule,c-6,c+8,lambda f,c=c:(-1000+4000*progress(f,c-6,c+8),540,1900 if name!='prism' else 220,1080,0,.9),'Transition',1000)
-    for role in ('music','effects'):
-        if (job/'audio-manifest.json').exists():
-            path=mix(job,role)
-            if path:
-                dest=media/f'{role}.wav';shutil.copy2(path,dest);track='Audio '+role;s.add_track(draft.TrackType.audio,track);s.add_segment(draft.AudioSegment(str(dest),draft.trange(0,us(total))),track)
     s.save()
     meta_path=out/'draft_meta_info.json';meta=json.loads(meta_path.read_text(encoding='utf-8'));meta.update(draft_name=out.name,draft_fold_path=str(out),draft_root_path=str(out.parent),tm_duration=us(total));meta_path.write_text(json.dumps(meta))
     (out/'EDITING.md').write_text(f'''# {name} 剪映草稿

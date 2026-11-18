@@ -69,9 +69,12 @@ def install(source, template, out, editor):
     # The template is empty, but omit its account/cloud metadata nevertheless.
     meta={k:v for k,v in meta.items() if 'cloud' not in k and 'enterprise' not in k and 'purchase' not in k}
     meta.update(draft_id=str(uuid.uuid4()).upper() if modern else tid,draft_name=out.name,draft_fold_path=str(out),draft_root_path=str(out.parent),tm_duration=src['duration'])
+    cover = source/'draft_cover.jpg'
+    meta['draft_cover'] = str(out/'draft_cover.jpg') if cover.is_file() else ''
     out.mkdir(parents=True)
     try:
         shutil.copytree(source/'media',out/'media')
+        if cover.is_file(): shutil.copy2(cover,out/'draft_cover.jpg')
         (out/filename).write_text(json.dumps(dst,ensure_ascii=False),encoding='utf-8')
         (out/'draft_meta_info.json').write_text(json.dumps(meta,ensure_ascii=False),encoding='utf-8')
         if modern:
@@ -91,3 +94,4 @@ if __name__=='__main__':
     p.add_argument('--template',type=Path)
     p.add_argument('--editor',choices=['jianying','capcut'],required=True)
     a=p.parse_args();print(install(a.source,a.template,a.out,a.editor))
+    print('安装完成。若剪映已打开，请保存当前工作后退出并重新启动；外部安装不会自动刷新草稿列表。')

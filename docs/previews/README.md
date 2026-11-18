@@ -1,25 +1,8 @@
 # Showcase preview maintenance
 
-These silent GIFs were exported from the project owner's SYTASK demonstration videos, refreshed on 2026-11-14 with the supplied English UI screenshots. Together with the Entrance preview added on 2026-11-18, they illustrate the eight included effects and are not runtime inputs. No original screenshot files or audio are included here.
+All eight GIFs were regenerated on 2026-11-18 from the canonical English SYTASK screenshots in `assets/demo-app/`. Each GIF shows the same first eight seconds at original speed as the corresponding website MP4, at 400 pixels wide and 8 fps. GIF and MP4 are derived from one render/configuration; do not substitute older Chinese demo videos. The complete Entrance template lasts eight seconds; other previews are excerpts, not sped-up full animations.
 
-| Preview | Source demo | Playback speed |
-| --- | --- | --- |
-| `entrance.gif` | Gentle fan entrance with side introductions, Chinese UI | 1.5× |
-| `flipstack.gif` | SYTASK floating page stack, English UI | 1× (20 fps, 400 frames, 20 seconds) |
-| `spotlight.gif` | SYTASK spotlight, sound edition | 1.5× |
-| `launch.gif` | SYTASK launch film, sound edition | 2× |
-| `kinetic.gif` | SYTASK kinetic promo | 2× |
-| `prism.gif` | SYTASK prismatic gallery | 2× |
-| `orbit.gif` | SYTASK orbital showcase | 2× |
-| `storybook.gif` | SYTASK storybook, sound edition | 3× |
-
-Previews are 400 pixels wide with a reduced palette. Flipstack was refreshed on 2026-11-18 at 20 fps and normal speed to preserve the leaf-riffle motion; the other previews use 8 fps. The README labels their speed and silent playback; users should not judge full-resolution text sharpness or audio from these previews. Preview size is kept small; full-resolution video files are excluded. Anyone downloading the complete skill folder also downloads them.
-
-When adding an effect, export a small preview from an actual rendered video, check it visually, and add the example and invocation prompt to the README. Keep the preview near or below 400 KB when practical. Do not add full MP4s, large GIFs, original media, or test outputs. Use only material the project owner has authorized for public showcase.
-
-Full-quality videos can be hosted as release assets, GitHub attachments, or on a separate media host. Add links only after uploading is authorized and the public URLs are verified. A release asset is separate from the repository source archive; attaching a binary to a release does not place it in the skill's source folder. External links can also replace these GIFs if eliminating preview downloads becomes a priority.
-
-The skill code's MIT license does not grant rights to SYTASK branding or screenshot content. These previews are demonstrations, not stock media for reuse in other products.
+Follow `AGENTS.md` and the canonical manifest for new App effects. Website MP4s are 1280×720, 30 fps, silent H.264; no sound should be added. These screenshots are authorized project demo media, not stock media licensed for reuse in other products. Validation and source paths for this refresh are in `output/canonical-previews/validation.json` at workspace root.
 
 ## Publishing full videos
 

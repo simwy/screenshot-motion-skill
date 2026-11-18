@@ -1,3 +1,5 @@
+See [engine contract](engine.md) for agent-free generation and cloud-worker integration.
+
 # Developer rendering commands
 
 This reference is for contributors, debugging, and agents executing the skill. The user-facing workflow is to invoke the skill in conversation; users do not need to author JSON or run these commands themselves.
@@ -23,7 +25,7 @@ python3 scripts/motion.py render --job /path/to/new-job --browser /path/to/chrom
 python3 scripts/motion.py mix --job /path/to/new-job
 ```
 
-Output: `out/video-silent.mp4` and `out/video.mp4`. Both are always silent; legacy audio inputs are ignored. `--browser` can be omitted if Chrome is found; `CHROME_PATH` is also supported. The helper does not automatically download a browser. `scripts/book.py` is a compatibility alias; prefer `motion.py`.
+Output: `out/video-silent.mp4` and `out/video.mp4`. Both are always silent; legacy audio inputs are ignored. `--browser` can be omitted if Chrome is found; `CHROME_PATH` is also supported. The helper does not automatically download a browser.
 
 Follow the [quality checks](quality.md) before delivery. Caption edits can be made in the job's `project.json` before rerendering. For screenshot changes or storybook duration changes, prepare a new job from the input configuration so the composition metadata is regenerated consistently.
 

@@ -9,3 +9,7 @@ No third-party audio, fonts or reference-project source code are bundled. Small,
 Screenshot and audio rights remain with their respective owners. Users must supply appropriate authorization and preserve attribution where required.
 
 The optional experimental native-draft adapter imports pyJianYingDraft 0.2.7, licensed under Apache-2.0 by its upstream contributors. That dependency is installed separately and not vendored. See [upstream source and license](https://github.com/GuanYixuan/pyJianYingDraft). This skill is not affiliated with Jianying or CapCut and does not guarantee their private draft formats.
+
+## Bundled SYTASK demo screenshots
+
+`assets/demo-app/screenshots/` contains five English SYTASK screenshots supplied by the project owner for this project’s demonstrations and template development. These media and brand rights are separate from the code’s MIT license and are not stock media licensed for use in other products.

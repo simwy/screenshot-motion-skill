@@ -1,0 +1,34 @@
+{
+  "product": "SYTASK",
+  "language": "en",
+  "screenshots": [
+    {
+      "file": "screenshots/01-home.png",
+      "sha256": "a9d39328f2505dd300dbc34b26f34debdf0f106feaa9e5923b750e746fcddfbe"
+    },
+    {
+      "file": "screenshots/02-progress.png",
+      "sha256": "226263b3dc13946a844db701a2b942ab87bc3b7eed6b94ef9b36f5995f13a4e5"
+    },
+    {
+      "file": "screenshots/03-members.png",
+      "sha256": "5575a15cafa4f44c5cb975a243cbd91bfbb6b772be02cbd9c036ea0531de2ca2"
+    },
+    {
+      "file": "screenshots/04-profile.png",
+      "sha256": "230c4255de02727ee1659ba7d03a13e192dbf61267518f96116572949acf71bb"
+    },
+    {
+      "file": "screenshots/05-create-task.png",
+      "sha256": "cb9eb9806f1a99b22e9e91aae0ccf02a3f03d15fb2ff6e82ebbba5341264be7a"
+    }
+  ],
+  "usage": "Fixed English App demo set; customer assets override for customer work.",
+  "order": [
+    "Home",
+    "Progress",
+    "Members",
+    "Profile",
+    "Create task"
+  ]
+}

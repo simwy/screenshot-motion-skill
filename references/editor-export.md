@@ -1,4 +1,6 @@
-# Native import delivery
+Default cloud export is MP4 plus an optional portable installer ZIP. See [engine contract](engine.md). The client workflow below runs only for an explicit `.jypack` request.
+
+# Optional client-backed native import delivery
 
 For the app command “导入剪映草稿”, deliver a `.jypack` produced by Jianying’s **备份至本地 → 备份草稿及素材**. A folder containing JSON and media, or the installer bundle, is not this interchange format. Do not rename a ZIP or a JSON file to `.jypack`.
 
@@ -51,7 +53,7 @@ The adapter reads the empty template, creates new project/timeline IDs, transfer
 ### Export and verify
 
 1. Prepare a normalized Storybook job using `motion.py prepare`; reuse a compatible existing job when available. The exporter reads `project.json`, `public/screenshots/`, and optional audio configuration.
-2. Run the native exporter with an isolated Python containing `pyJianYingDraft==0.2.7` and Pillow. Audio stems additionally use the existing FFmpeg workflow. The exporter locates Arial under macOS Supplemental, Windows Fonts, or `SCREENSHOT_MOTION_FONT_DIR`.
+2. Run the native exporter with an isolated Python containing `pyJianYingDraft==0.2.7` and Pillow. The exporter locates Arial under macOS Supplemental, Windows Fonts, or `SCREENSHOT_MOTION_FONT_DIR`.
    ```sh
    /path/to/isolated-python /path/to/skill/scripts/storybook_native.py --job /path/to/storybook-job --out /path/to/new-draft
    ```
@@ -70,14 +72,12 @@ Default delivery is the finished MP4 and native `.jypack` including media, using
 | --- | --- |
 | Clean animation clips | Trim, reorder, speed, grade, and layer |
 | Imported SRT captions | Text, timing, font, position and styling |
-| Separate music and effects stems | Volume, trim, placement and replacement |
 | Original screenshot files | New image overlays or manual replacements |
 | Page curl / orbital geometry inside a clip | Baked; rerender through the skill to change |
 | Text already inside an app screenshot | Baked; supply an updated screenshot |
 
 Clean mode removes promotional copy, including canvas-painted book text. It preserves screenshot pixels and decorative shapes. Captions are exported independently as a simple title/description timeline; they do not reproduce the original text entrances, typography, label layout, or text printed on turning pages. Storybook captions only cover static holds. Additional original copy is retained in `copy.json`.
 
-Music and effects are separate full-length stems with cue timing and fades already applied. Individual sound cues are not separate clips in the current editing pack. The source project remains available for cue-level revisions.
 
 ## Agent workflow
 
@@ -99,20 +99,6 @@ The pack includes `visuals-clean.mp4`, numbered `clips/`, `titles.srt`, optional
 CapCut Desktop officially documents importing SRT files as editable text clips: [CapCut subtitle import](https://www.capcut.com/help/how-to-import-subtitles). This is a media/subtitle workflow, not native project interchange. Jianying is a separate application: verify local subtitle import in the user's exact installed build. If unavailable, provide the copy and shot timings for manual text creation.
 
 Native draft formats, registration, paths and fonts can differ by OS and application version. “Latest version” is not a reproducible compatibility target. Record the exact app version, OS and successful import check before publishing compatibility claims. The native Storybook macOS validation is recorded above. It does not establish compatibility for other platforms, apps, versions, or the separate baked-clip adapter.
-
-## Legacy baked-clip Jianying adapter
-
-A separate optional adapter creates a legacy plaintext draft with motion clips, editable title/description text tracks and separate audio tracks. It does not convert React, CSS transforms, or the page mesh to native animation keyframes.
-
-The adapter uses `pyJianYingDraft==0.2.7` (Apache-2.0), installed into an isolated environment by the agent. Read the [upstream compatibility notes](https://github.com/GuanYixuan/pyJianYingDraft) before use. Do not assume Jianying and CapCut accept the same draft.
-
-```sh
-/path/to/isolated-python /path/to/skill/scripts/jianying.py --pack /path/to/editing-pack --out /path/to/new-standalone-draft
-```
-
-Generate on the destination machine: the draft contains absolute media paths, while the editing pack is portable. The adapter copies its media into the draft folder, never overwrites an existing folder, and does not install/register a draft in the application. If the folder moves, regenerate from the pack at the new location. Do not rename JSON files or overwrite encrypted app drafts as a compatibility workaround.
-
-A successful JSON export or library readback is **not** proof that a current editor opens it. Record compatibility evidence internally. If incompatible, explain the concrete blocker; do not substitute an editing pack without the user choosing it.
 
 ## Entrance support
 

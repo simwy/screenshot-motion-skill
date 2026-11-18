@@ -9,3 +9,11 @@ The registry (`templates.json`) is the selection contract. The prepare command c
 5. Validate preparation, typecheck, representative stills and a complete short render. Inspect output frame count, text fit, screenshots, motion continuity and mixed audio. If shared code changed, rerun affected existing templates. Keep all test output and source media outside the skill package.
 
 No existing template should be silently replaced by a newly added one. Maintain stable template IDs and preserve old configuration fields or document an explicit migration. Bump dependency versions only with validation. Renderer code is shipped; finished videos and input screenshots are not.
+
+## Fixed App demo inputs
+
+Use the English SYTASK assets and manifest in `assets/demo-app/` for App effect development and website regression previews. Follow `AGENTS.md`. Inspect both screenshots and captions; generate GIF and MP4 from the same render. The demo set has five images; this does not authorize claiming arbitrary screenshot counts. Declare min/max in templates.json and test renderer layout/timing for each supported count. Current non-Storybook templates require exactly five; supporting three or six requires layout, timing, indexing and export review, not just relaxed validation.
+
+## Per-effect input contract
+
+Each renderer owns its supported screenshot range, published once through templates.json. Web, Skill, CLI and Worker must consume this declaration rather than invent independent limits. Out-of-range input requires user correction before rendering; never pad or truncate automatically. Validate boundary and intermediate counts before expanding the declared range.
