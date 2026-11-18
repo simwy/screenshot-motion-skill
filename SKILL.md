@@ -22,7 +22,19 @@ Read [template selection and mapping](references/templates.md) before arranging 
 
 ## Inputs and decisions
 
-Identify the product being promoted, the supplied screenshot order, and the output language from the request. Preserve previous choices. If the product is ambiguous, clarify before writing promotional claims; otherwise use reasonable defaults and proceed. Default: 1920×1080, 30 fps, four-second holds for storybook, English explanatory text, no spoken narration.
+Accept the minimal prompt below; `Description` is a one-sentence explanation of what the app does and may be written in any language:
+
+```text
+Use screenshot-motion-skill to make a promotional video from the attached screenshots.
+
+App name: FocusFlow
+Description: A task planner that helps people organize their day and stay focused.
+Effect: orbit
+```
+
+Use attachment order for screenshots unless the user specifies another order. Automatically write short captions based on the app name, description, and visible UI. Infer caption language from the app name: Chinese or mixed Chinese/English names use Chinese; English names use English; names in other languages use the corresponding language. Do not use the description language to override this choice. Honor explicit language and order requests and preserve previous choices. Do not require separate Caption language or Screenshot order fields. If the name does not identify a language, use the user's request language as a fallback.
+
+Identify the product being promoted. If the product is ambiguous, clarify before writing promotional claims; otherwise use reasonable defaults and proceed. Default: 1920×1080, 30 fps, four-second holds for storybook, no spoken narration.
 
 Inspect screenshots before writing copy. Use the real UI without inventing controls, customer counts, performance claims, prices or download addresses. The explanatory copy is a separate editable layer; text baked into screenshots cannot be changed by changing captions. Use user-provided or appropriately licensed media. Keep private screenshots and generated jobs outside the installed skill directory.
 

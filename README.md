@@ -65,11 +65,11 @@ Once the agent confirms installation, start a new task in the same project. Thes
 Use screenshot-motion-skill to make a promotional video from the attached screenshots.
 
 App name: FocusFlow
-What it does: A task planner that helps people organize their day and stay focused.
+Description: A task planner that helps people organize their day and stay focused.
 Effect: orbit
-Caption language: English. Write short captions for me.
-Screenshot order: Use the attachment order.
 ```
+
+`Description` is a one-sentence explanation of what your app does; you can write it in any language. Screenshots follow attachment order, and the agent writes short captions automatically. Caption language follows the app name: Chinese or mixed Chinese/English names use Chinese, English names use English, and other languages use the corresponding language. The description language does not change this choice. You can explicitly request a different order or language when needed.
 
 Replace `orbit` with any effect above: **`spotlight` · `launch` · `storybook` · `orbit` · `kinetic` · `prism` · `flipstack` · `entrance`**.
 

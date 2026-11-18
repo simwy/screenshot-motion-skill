@@ -62,18 +62,16 @@ AI 确认安装完成后，在同一项目中新建任务。以上说明适用�
 **3. 填写应用信息并选择效果。** 将下面的示例粘贴到附有截图的消息中，替换应用名称和一句话介绍后发送。应用名称就是普通文字中的一行，无需单独填写表单或使用特殊命令。
 
 ```text
-使用 screenshot-motion-skill，把附件中的截图制作成宣传视频。
+Use screenshot-motion-skill to make a promotional video from the attached screenshots.
 
-App 名称：诗柚古文
-一句话介绍：一款帮助学生轻松学习古诗词和文言文的 App。
-效果：orbit
-文案语言：英文，请自动撰写简短文案。
-截图顺序：请按附件上传顺序展示。
+App name: FocusFlow
+Description: A task planner that helps people organize their day and stay focused.
+Effect: orbit
 ```
 
 将 `orbit` 替换为你喜欢的效果：**`spotlight` · `launch` · `storybook` · `orbit` · `kinetic` · `prism` · `flipstack` · `entrance`**。
 
-指令可以用中文；如果希望视频使用中文文案，将“文案语言”改成“中文”即可。
+`Description` 就是一句话描述应用做什么，也可以用中文填写。截图默认按附件上传顺序展示，AI 自动撰写简短文案。文案语言根据应用名称判断：中文或中英混合名称使用中文，英文名称使用英文，其他语言使用对应语言；描述所用语言不影响这一判断。如有需要，仍可明确指定其他顺序或文案语言。
 
 使用上述指令，AI 会撰写文案、制作动画、检查结果，并交付 MP4、剪映草稿包和导入说明。随后你可以继续说：“修改主标题”，或“替换第三张截图”。
 
